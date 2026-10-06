@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Coming Soon — Miniature Train Ride Park</title>
+<meta name="description" content="Something exciting is on the way at Miniature Train Ride Park. Sign up to be the first to know!">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="auth-top-controls">
+  <button class="nav-icon-btn" id="darkToggle" aria-label="Toggle theme" style="border-color:rgba(255,255,255,0.3);color:#fff;background:rgba(255,255,255,0.1)">
+    <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </button>
+</div>
+<div class="coming-soon-page">
+  <div class="coming-soon-bg" aria-hidden="true"></div>
+  <div class="coming-soon-content">
+    <div class="coming-soon-logo">
+      <a href="index.html" class="auth-logo-link">
+        <img src="logo.svg" alt="TrainPark Logo" width="48" height="48" style="filter:brightness(10)">
+        <div class="nav-logo-text" style="text-align:left">
+          <span class="brand-top" style="color:#fff;font-size:1.125rem">TrainPark</span>
+          <span class="brand-bottom" style="font-size:0.75rem">Ride &amp; Play</span>
+        </div>
+      </a>
+    </div>
+    <div class="coming-soon-label">Something Exciting Is Coming</div>
+    <h1 class="coming-soon-title">We're Building<br>Something Special</h1>
+    <p class="coming-soon-desc">A brand new feature is on the way — one that will make your visits even more magical. Be the first to know when we launch.</p>
+    <div class="countdown-row" aria-label="Countdown timer">
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cd-days">00</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cd-hours">00</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cd-mins">00</span>
+        <span class="countdown-label">Minutes</span>
+      </div>
+      <div class="countdown-unit">
+        <span class="countdown-num" id="cd-secs">00</span>
+        <span class="countdown-label">Seconds</span>
+      </div>
+    </div>
+    <form class="coming-soon-form" id="comingSoonForm" novalidate aria-label="Notify me form">
+      <input type="email" class="coming-soon-input" id="comingSoonEmail" placeholder="Enter your email" aria-label="Email address" required>
+      <button type="submit" class="btn btn-secondary" id="comingSoonSubmitBtn">Notify Me</button>
+    </form>
+    <p style="font-size:0.8125rem;color:rgba(255,255,255,0.5);margin-top:1rem">No spam, ever. Unsubscribe at any time.</p>
+    <div style="margin-top:2rem"><a href="index.html" style="color:rgba(255,255,255,0.7);font-size:0.875rem;text-decoration:underline">← Return to main site</a></div>
+  </div>
+</div>
+<script src="components.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  initDarkMode();
+  initCountdown('2026-12-25T10:00:00');
+  const form = document.getElementById('comingSoonForm');
+  if(form) form.addEventListener('submit', e => {
+    e.preventDefault();
+    const btn = form.querySelector('button');
+    const inp = form.querySelector('input');
+    if(!inp.value || !inp.value.includes('@')) return;
+    btn.textContent = '🎉 You're on the list!';
+    btn.disabled = true;
+    inp.value = '';
+  });
+});
+</script>
+</body>
+</html>

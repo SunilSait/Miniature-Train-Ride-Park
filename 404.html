@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page Not Found — Miniature Train Ride Park</title>
+<meta name="description" content="Oops! The page you were looking for has gone off the rails. Return to the Miniature Train Ride Park homepage.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="navbar-container"></div>
+<div class="error-page">
+  <div aria-hidden="true" style="position:absolute;inset:0;background-image:url('assets/images/park_landscape_wide_1791302713672.jpg');background-size:cover;background-position:center;opacity:0.05;"></div>
+  <div class="error-content">
+    <span class="error-train" role="img" aria-label="Train emoji">🚂</span>
+    <div class="error-code" aria-label="Error 404">404</div>
+    <h1 class="error-title">This Train Has Gone Off the Rails!</h1>
+    <p class="error-desc">Looks like the page you were looking for has taken an unexpected detour. Don't worry — let's get you back on track.</p>
+    <div class="error-actions">
+      <a href="index.html" class="btn btn-primary btn-lg" id="errorHomeBtn">Back to Home</a>
+      <a href="contact.html" class="btn btn-outline btn-lg" id="errorContactBtn">Contact Us</a>
+    </div>
+  </div>
+</div>
+<div id="footer-container"></div>
+<script src="components.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  initComponents('');
+});
+</script>
+</body>
+</html>
