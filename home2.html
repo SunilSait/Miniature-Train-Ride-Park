@@ -13,13 +13,71 @@
 
 <!-- HERO 2 SPLIT CAROUSEL -->
 <section class="hero2-split-carousel" id="hero2Carousel" aria-label="Park experience showcase">
+  <!-- Theme Background Animation Elements -->
+  <div class="hero2-theme-fx" aria-hidden="true">
+    <!-- Ambient Luminous Mesh Fields -->
+    <div class="fx-mesh fx-mesh-gold"></div>
+    <div class="fx-mesh fx-mesh-emerald"></div>
+    <div class="fx-mesh fx-mesh-forest"></div>
+
+    <!-- Animated Railway Track Flow Lines & Glowing Signal Nodes -->
+    <svg class="railway-flow-lines" viewBox="0 0 1440 600" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Main Scenic Railway Curve 1 -->
+      <path class="rail-path-base" d="M-100 220 C280 120, 520 340, 880 200 C1140 90, 1340 280, 1600 180" stroke="rgba(245,212,120,0.18)" stroke-width="2.5" stroke-dasharray="8 6"/>
+      <path class="rail-path-glow rail-glow-1" d="M-100 220 C280 120, 520 340, 880 200 C1140 90, 1340 280, 1600 180" stroke="url(#goldGradient1)" stroke-width="3.5" stroke-linecap="round"/>
+
+      <!-- Secondary Scenic Track Curve 2 -->
+      <path class="rail-path-base" d="M-100 460 C320 540, 680 380, 1040 490 C1280 560, 1420 430, 1600 480" stroke="rgba(74,222,128,0.14)" stroke-width="2.5" stroke-dasharray="10 8"/>
+      <path class="rail-path-glow rail-glow-2" d="M-100 460 C320 540, 680 380, 1040 490 C1280 560, 1420 430, 1600 480" stroke="url(#greenGradient1)" stroke-width="3" stroke-linecap="round"/>
+
+      <!-- Cross Connector Branch Line -->
+      <path class="rail-path-base" d="M380 0 C440 240, 720 320, 820 600" stroke="rgba(245,212,120,0.12)" stroke-width="2" stroke-dasharray="6 6"/>
+      <path class="rail-path-glow rail-glow-3" d="M380 0 C440 240, 720 320, 820 600" stroke="url(#goldGradient1)" stroke-width="2.5" stroke-linecap="round"/>
+
+      <!-- Gradients -->
+      <defs>
+        <linearGradient id="goldGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#F5D478" stop-opacity="0"/>
+          <stop offset="50%" stop-color="#FFE082" stop-opacity="0.95"/>
+          <stop offset="100%" stop-color="#D4A017" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="greenGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#4ADE80" stop-opacity="0"/>
+          <stop offset="50%" stop-color="#86EFAC" stop-opacity="0.85"/>
+          <stop offset="100%" stop-color="#2C5F2E" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Railway Signal Junction Nodes -->
+      <circle class="junction-node node-1" cx="440" cy="240" r="5" fill="#F5D478"/>
+      <circle class="junction-node node-2" cx="880" cy="200" r="5.5" fill="#FFE082"/>
+      <circle class="junction-node node-3" cx="680" cy="380" r="4.5" fill="#4ADE80"/>
+      <circle class="junction-node node-4" cx="1040" cy="490" r="5" fill="#F5D478"/>
+    </svg>
+
+    <!-- Floating Steam Wisps & Organic Smoke -->
+    <div class="steam-wisp wisp-1"></div>
+    <div class="steam-wisp wisp-2"></div>
+    <div class="steam-wisp wisp-3"></div>
+    <div class="steam-wisp wisp-4"></div>
+
+    <!-- Soft Golden Locomotive Dust & Sparkles -->
+    <div class="gold-sparkle sp-1"></div>
+    <div class="gold-sparkle sp-2"></div>
+    <div class="gold-sparkle sp-3"></div>
+    <div class="gold-sparkle sp-4"></div>
+    <div class="gold-sparkle sp-5"></div>
+    <div class="gold-sparkle sp-6"></div>
+    <div class="gold-sparkle sp-7"></div>
+  </div>
+
   <div class="hero2-slides-track">
     <!-- SLIDE 1: The Full Experience -->
     <div class="hero2-slide active" data-slide="0">
       <div class="hero2-slide-inner">
         <div class="hero2-left">
           <div class="hero2-content">
-            <div class="section-label" style="background:rgba(212,160,23,0.2);color:#F5D478;border-color:rgba(212,160,23,0.4)">The Full Experience</div>
+            <div class="section-label">The Full Experience</div>
             <h1 class="hero2-title">Where Every <em>Ride</em> Tells a Story</h1>
             <p class="hero2-desc">Explore our scenic park, discover the history of miniature railways, and enjoy a day that the whole family will talk about for years to come.</p>
             <div class="hero2-actions">
@@ -53,7 +111,7 @@
       <div class="hero2-slide-inner">
         <div class="hero2-left">
           <div class="hero2-content">
-            <div class="section-label" style="background:rgba(212,160,23,0.2);color:#F5D478;border-color:rgba(212,160,23,0.4)">Vintage Railway Heritage</div>
+            <div class="section-label">Vintage Railway Heritage</div>
             <h2 class="hero2-title">Authentic Steam &amp; <em>Scenic</em> Trails</h2>
             <p class="hero2-desc">Experience 12km of lovingly maintained tracks winding through vibrant floral tunnels, cast-iron heritage bridges, and lush meadow views.</p>
             <div class="hero2-actions">
@@ -87,7 +145,7 @@
       <div class="hero2-slide-inner">
         <div class="hero2-left">
           <div class="hero2-content">
-            <div class="section-label" style="background:rgba(212,160,23,0.2);color:#F5D478;border-color:rgba(212,160,23,0.4)">Family Magic &amp; Memories</div>
+            <div class="section-label">Family Magic &amp; Memories</div>
             <h2 class="hero2-title">Four Generations of <em>Joy</em> &amp; Wonder</h2>
             <p class="hero2-desc">From toddler first train journeys to grandparents reliving nostalgic childhood smiles, our park brings all ages together in celebrated joy.</p>
             <div class="hero2-actions">
