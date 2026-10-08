@@ -37,6 +37,8 @@ strong,b{font-weight:600;}
 .btn-secondary:hover{background:var(--secondary-hover);border-color:var(--secondary-hover);transform:translateY(-2px);box-shadow:0 8px 24px rgba(212,160,23,0.35);}
 .btn-outline{background:transparent;color:var(--primary);border-color:var(--primary);}
 .btn-outline:hover{background:var(--primary);color:#fff;transform:translateY(-2px);}
+.dark .btn-outline{background:rgba(74,222,128,0.1);color:#4ADE80;border-color:rgba(74,222,128,0.45);}
+.dark .btn-outline:hover{background:#4ADE80;color:#0E100E;border-color:#4ADE80;}
 .btn-outline-light{background:transparent;color:#fff;border-color:rgba(255,255,255,0.7);}
 .btn-outline-light:hover{background:rgba(255,255,255,0.15);border-color:#fff;transform:translateY(-2px);}
 .btn-sm{padding:0.5rem 1.125rem;font-size:0.8125rem;}
@@ -192,6 +194,10 @@ strong,b{font-weight:600;}
 .bento-icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:var(--primary-subtle);border-radius:var(--radius-md);color:var(--primary);margin-bottom:1rem;}
 .journey-section{background:var(--bg-surface);padding:5rem 0;}
 .journey-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.journey-content{display:flex;flex-direction:column;align-items:flex-start;}
+.journey-content .track-divider{justify-content:flex-start;margin-bottom:1.25rem;width:100%;}
+.journey-content .track-divider::before{display:none;}
+.journey-content .track-divider::after{flex:0 0 70px;}
 .journey-img-wrap{position:relative;border-radius:var(--radius-2xl);overflow:hidden;box-shadow:var(--shadow-xl);}
 .journey-img{width:100%;height:480px;object-fit:cover;}
 .journey-img-badge{position:absolute;bottom:1.5rem;left:1.5rem;background:var(--secondary);color:#fff;border-radius:var(--radius-lg);padding:1rem 1.5rem;box-shadow:var(--shadow-lg);}
@@ -257,9 +263,26 @@ strong,b{font-weight:600;}
 .cta-banner-title{font-family:var(--font-heading);font-size:clamp(1.875rem,4vw,3rem);font-weight:700;color:#fff;margin-bottom:1rem;}
 .cta-banner-desc{font-size:1.1rem;color:rgba(255,255,255,0.85);margin-bottom:2.25rem;max-width:540px;margin-left:auto;margin-right:auto;}
 .cta-banner-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-.visit-hero{position:relative;background:url('assets/images/ticket_booth_vintage_1791302728803.jpg') center center/cover no-repeat;padding:5.5rem 0 4.5rem;text-align:center;color:#fff;overflow:hidden;}
+.visit-hero,
+.parties-hero,
+.school-hero,
+.contact-hero{
+  position:relative;
+  min-height:380px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:7.5rem 0 6.5rem;
+  text-align:center;
+  color:#fff;
+  overflow:hidden;
+}
+.visit-hero{background:url('assets/images/ticket_booth_vintage_1791302728803.jpg') center center/cover no-repeat;}
+.parties-hero{background:url('assets/images/hero_birthday_party_express_1791481609822.jpg') center 35%/cover no-repeat;}
+.school-hero{background:url('assets/images/hero_school_groups_excursion_1791481490158.jpg') center 30%/cover no-repeat;}
+.contact-hero{background:url('assets/images/hero_contact_visitor_desk_1791481556739.jpg') center 40%/cover no-repeat;}
 .visit-hero::before,.parties-hero::before,.school-hero::before,.contact-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.28) 0%,rgba(0,0,0,0.44) 100%);pointer-events:none;z-index:1;}
-.visit-hero-content,.parties-hero-content,.school-hero-content,.contact-hero-content{position:relative;z-index:2;}
+.visit-hero-content,.parties-hero-content,.school-hero-content,.contact-hero-content{position:relative;z-index:2;width:100%;}
 .visit-hero h1,.parties-hero h1,.school-hero h1,.contact-hero h1{font-family:var(--font-heading);font-size:clamp(2.25rem,5vw,3.25rem);font-weight:700;color:#ffffff;line-height:1.2;margin-bottom:0.5rem;text-shadow:0 2px 12px rgba(0,0,0,0.85),0 4px 24px rgba(0,0,0,0.65);}
 .visit-hero p,.parties-hero p,.school-hero p,.contact-hero p{font-size:1.1rem;color:#ffffff;font-weight:500;line-height:1.6;margin-top:0.75rem;max-width:620px;margin-left:auto;margin-right:auto;text-shadow:0 2px 8px rgba(0,0,0,0.9),0 1px 3px rgba(0,0,0,0.9);}
 .visit-hero .section-label,.parties-hero .section-label,.school-hero .section-label,.contact-hero .section-label{background:rgba(14,28,14,0.85)!important;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#F5D478!important;border:1px solid rgba(212,160,23,0.45)!important;box-shadow:0 4px 14px rgba(0,0,0,0.35);margin-bottom:1rem;}
@@ -311,7 +334,8 @@ strong,b{font-weight:600;}
 .pricing-amount .currency{font-size:1.35rem;font-weight:700;color:var(--primary);}
 .pricing-amount .price-val{font-family:var(--font-heading);font-size:2.5rem;font-weight:800;color:var(--primary);line-height:1;}
 .pricing-per{font-size:0.75rem;color:var(--text-muted);display:block;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:0.04em;font-weight:600;}
-.pricing-perks{border-top:1px solid var(--border-light);padding-top:1.25rem;display:flex;flex-direction:column;gap:0.75rem;text-align:left;font-size:0.85rem;color:var(--text-body);list-style:none;margin:0;flex:1;}
+.pricing-card-body{width:100%;border-top:1px solid var(--border-light);padding-top:1.25rem;flex:1;display:flex;justify-content:center;}
+.pricing-perks{display:inline-flex;flex-direction:column;gap:0.75rem;text-align:left;font-size:0.85rem;color:var(--text-body);list-style:none;margin:0 auto;padding:0;width:fit-content;}
 .pricing-perks li{display:flex;align-items:center;gap:0.6rem;line-height:1.45;}
 .pricing-perks li svg{color:var(--primary);flex-shrink:0;}
 .pricing-card.featured .pricing-perks li svg{color:var(--secondary);}
@@ -350,7 +374,7 @@ strong,b{font-weight:600;}
 .dark .pricing-card.featured{border-color:#4ADE80;box-shadow:0 12px 36px rgba(74,222,128,0.14);}
 .dark .pricing-card.featured .pricing-amount .currency,
 .dark .pricing-card.featured .price-val{color:var(--secondary);}
-.dark .pricing-perks{border-top-color:var(--border-default);}
+.dark .pricing-card-body{border-top-color:var(--border-default);}
 .dark .pricing-perks li svg{color:#4ADE80;}
 .dark .pricing-card.featured .pricing-perks li svg{color:var(--secondary);}
 .dark .ticket-special-pill{background:var(--bg-card);border-color:var(--border-default);}
@@ -367,7 +391,7 @@ strong,b{font-weight:600;}
 .ticket-age{font-size:0.8125rem;color:var(--text-muted);display:block;font-weight:400;}
 .ticket-price{font-family:var(--font-heading);font-size:1.375rem;font-weight:700;color:var(--primary);}
 .ticket-free{color:var(--secondary);font-weight:700;font-size:1.125rem;}
-.parties-hero{position:relative;background:url('assets/images/birthday_party_train_1791302629663.jpg') center top/cover no-repeat;padding:5.5rem 0 4.5rem;text-align:center;color:#fff;overflow:hidden;}
+
 .party-packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem;margin-top:3rem;align-items:stretch;}
 .party-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-card);transition:var(--transition-smooth);text-align:center;display:flex;flex-direction:column;height:100%;}
 .party-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-card-hover);}
@@ -387,7 +411,7 @@ strong,b{font-weight:600;}
 .party-feature-item{display:flex;gap:0.625rem;align-items:flex-start;font-size:0.875rem;color:var(--text-body);}
 .feat-icon{color:var(--primary);flex-shrink:0;margin-top:2px;}
 .party-card-body .btn{margin-top:auto;}
-.school-hero{position:relative;background:url('assets/images/school_trip_train_1791302643376.jpg') center 30%/cover no-repeat;padding:5.5rem 0 4.5rem;text-align:center;color:#fff;overflow:hidden;}
+
 .benefits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
 .benefit-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:2rem;text-align:center;transition:var(--transition-smooth);box-shadow:var(--shadow-card);}
 .benefit-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-card-hover);}
@@ -395,12 +419,12 @@ strong,b{font-weight:600;}
 .benefit-title{font-family:var(--font-heading);font-size:1.125rem;font-weight:600;color:var(--text-heading);margin-bottom:0.625rem;}
 .benefit-desc{font-size:0.875rem;color:var(--text-muted);line-height:1.7;}
 .school-booking-layout{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:start;margin-top:3rem;}
-.contact-hero{position:relative;background:url('assets/images/train_station_platform_1791302656115.jpg') center center/cover no-repeat;padding:5.5rem 0 4.5rem;text-align:center;color:#fff;overflow:hidden;}
+
 .contact-layout{display:grid;grid-template-columns:1fr 1.6fr;gap:3rem;margin-top:3rem;}
 .contact-info-stack{display:flex;flex-direction:column;gap:1.25rem;}
 .contact-info-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;transition:var(--transition-smooth);box-shadow:var(--shadow-card);}
 .contact-info-card:hover{border-color:var(--primary);box-shadow:var(--shadow-card-hover);}
-.contact-feature-img-card{position:relative;border-radius:var(--radius-xl);overflow:hidden;border:1px solid var(--border-light);box-shadow:var(--shadow-card);height:175px;transition:var(--transition-smooth);background:var(--bg-surface);}
+.contact-feature-img-card{position:relative;border-radius:var(--radius-xl);overflow:hidden;border:1px solid var(--border-light);box-shadow:var(--shadow-card);height:220px;transition:var(--transition-smooth);background:var(--bg-surface);}
 .contact-feature-img-card:hover{box-shadow:var(--shadow-card-hover);border-color:var(--primary);transform:translateY(-2px);}
 .dark .contact-feature-img-card{border-color:var(--border-default);box-shadow:0 8px 24px rgba(0,0,0,0.4);background:var(--bg-card);}
 .dark .contact-feature-img-card:hover{border-color:#4ADE80;}
@@ -408,7 +432,7 @@ strong,b{font-weight:600;}
 .contact-feature-img-card:hover .contact-feature-img{transform:scale(1.05);}
 .contact-feature-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(13,26,13,0.85) 0%,rgba(13,26,13,0.15) 55%,transparent 100%);display:flex;align-items:flex-end;padding:1rem 1.25rem;}
 .contact-feature-badge{display:inline-flex;align-items:center;gap:0.4rem;font-size:0.8125rem;font-weight:600;color:#F5D478;background:rgba(20,45,22,0.88);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);padding:0.35rem 0.85rem;border-radius:var(--radius-full);border:1px solid rgba(245,212,120,0.35);box-shadow:0 4px 12px rgba(0,0,0,0.3);}
-.school-feature-img-card{position:relative;border-radius:var(--radius-xl);overflow:hidden;border:1px solid var(--border-light);box-shadow:var(--shadow-card);height:250px;transition:var(--transition-smooth);background:var(--bg-surface);}
+.school-feature-img-card{position:relative;border-radius:var(--radius-xl);overflow:hidden;border:1px solid var(--border-light);box-shadow:var(--shadow-card);height:360px;transition:var(--transition-smooth);background:var(--bg-surface);}
 .school-feature-img-card:hover{box-shadow:var(--shadow-card-hover);border-color:var(--primary);transform:translateY(-2px);}
 .dark .school-feature-img-card{border-color:var(--border-default);box-shadow:0 8px 24px rgba(0,0,0,0.4);background:var(--bg-card);}
 .dark .school-feature-img-card:hover{border-color:#4ADE80;}
@@ -437,6 +461,10 @@ strong,b{font-weight:600;}
 .form-label{display:block;font-weight:500;font-size:0.875rem;color:var(--text-heading);margin-bottom:0.5rem;}
 .form-input,.form-select,.form-textarea{width:100%;padding:0.75rem 1rem;border:1.5px solid var(--border-default);border-radius:var(--radius-md);background:var(--bg-body);color:var(--text-body);font-family:var(--font-body);font-size:0.9375rem;outline:none;transition:var(--transition-fast);}
 .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-subtle);}
+.form-input[type="date"]::-webkit-calendar-picker-indicator{cursor:pointer;opacity:0.75;transition:opacity 0.2s ease;}
+.form-input[type="date"]::-webkit-calendar-picker-indicator:hover{opacity:1;}
+.dark .form-input[type="date"]{color-scheme:dark;}
+.dark .form-input[type="date"]::-webkit-calendar-picker-indicator{filter:brightness(0) invert(1);opacity:0.95;cursor:pointer;}
 .form-textarea{resize:vertical;min-height:130px;}
 .auth-page{min-height:100vh;display:flex;flex-direction:column;overflow-x:hidden;background:linear-gradient(160deg,#F4F8F4 0%,#E9F2E9 50%,#FAF6EE 100%);}
 .dark .auth-page{background:linear-gradient(160deg,#0A140A 0%,#111D11 45%,#081108 100%);}
@@ -729,7 +757,7 @@ strong,b{font-weight:600;}
 .waypoint-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-card);transition:var(--transition-smooth);display:flex;flex-direction:column;}
 .dark .waypoint-card{border-color:var(--border-default);}
 .waypoint-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-card-hover);}
-.waypoint-img-wrap{position:relative;height:180px;overflow:hidden;}
+.waypoint-img-wrap{position:relative;height:220px;overflow:hidden;}
 .waypoint-img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;}
 .waypoint-card:hover .waypoint-img{transform:scale(1.06);}
 .waypoint-badge-time{position:absolute;top:0.85rem;left:0.85rem;background:rgba(14,28,14,0.85);backdrop-filter:blur(8px);color:#F5D478;font-size:0.72rem;font-weight:700;padding:0.25rem 0.65rem;border-radius:var(--radius-full);letter-spacing:0.05em;text-transform:uppercase;border:1px solid rgba(212,160,23,0.3);}
@@ -771,9 +799,9 @@ strong,b{font-weight:600;}
 .testi-author-block{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;}
 .testi-author-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;font-weight:700;font-size:1.2rem;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);flex-shrink:0;}
 .testi-author-details{text-align:left;}
-.testi-author-name{font-family:var(--font-heading);font-weight:700;font-size:1.05rem;color:var(--text-heading);}
+.testi-author-name{font-family:var(--font-heading);font-weight:700;font-size:1.05rem;color:var(--text-heading);display:flex;align-items:center;flex-wrap:wrap;gap:0.4rem;}
 .testi-author-sub{font-size:0.8125rem;color:var(--text-muted);}
-.testi-verified-badge{display:inline-flex;align-items:center;gap:0.35rem;background:rgba(74,222,128,0.12);color:#059669;font-size:0.72rem;font-weight:700;padding:0.25rem 0.65rem;border-radius:var(--radius-full);margin-left:0.5rem;}
+.testi-verified-badge{display:inline-flex;align-items:center;gap:0.35rem;background:rgba(74,222,128,0.12);color:#059669;font-size:0.72rem;font-weight:700;padding:0.25rem 0.65rem;border-radius:var(--radius-full);margin-left:0;}
 .dark .testi-verified-badge{color:#4ADE80;border:1px solid rgba(74,222,128,0.25);}
 .testi-controls{display:flex;align-items:center;justify-content:center;gap:1.5rem;margin-top:2rem;}
 .testi-btn-arrow{width:44px;height:44px;border-radius:50%;border:1px solid var(--border-light);background:var(--bg-card);color:var(--text-heading);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:var(--transition-fast);box-shadow:var(--shadow-sm);}
@@ -1029,6 +1057,7 @@ strong,b{font-weight:600;}
 .gallery-item:nth-child(n){grid-column:span 1;grid-row:span 1;}
 .journey-layout{gap:2.5rem;}
 .party-packages-grid{grid-template-columns:1fr 1fr;}
+.party-packages-grid .party-card:last-child{grid-column:span 2;max-width:calc(50% - 0.875rem);justify-self:center;width:100%;}
 .benefits-grid{grid-template-columns:1fr 1fr;}
 .school-booking-layout{grid-template-columns:1fr;}
 .seasonal-grid{grid-template-columns:repeat(2,1fr);}
@@ -1038,18 +1067,20 @@ strong,b{font-weight:600;}
 .pricing-cards-grid{grid-template-columns:repeat(2,1fr);}
 .circuit-grid{grid-template-columns:repeat(2,1fr);}
 .fleet-specs-grid{grid-template-columns:repeat(2,1fr);}
-.cta2-card{grid-template-columns:1fr;gap:2.5rem;padding:3rem 2rem;}
-.cta2-ticket-wrap{max-width:440px;margin:0 auto;width:100%;}
-.party-cta-grid{grid-template-columns:1fr;gap:2.5rem;padding:3rem 2rem;}
-.party-img-wrapper{height:320px;max-width:540px;margin:0 auto;}
-.school-cta-grid{grid-template-columns:1fr;gap:2.5rem;padding:3rem 2rem;}
-.school-img-wrapper{height:320px;max-width:540px;margin:0 auto;}
+.fleet-specs-grid .fleet-card:last-child{grid-column:span 2;max-width:calc(50% - 0.875rem);justify-self:center;width:100%;}
+.cta2-card{grid-template-columns:1.15fr 0.85fr;gap:2.25rem;padding:3rem 2.25rem;align-items:center;}
+.cta2-ticket-wrap{max-width:420px;margin:0;width:100%;}
+.party-cta-grid{grid-template-columns:1.05fr 0.95fr;gap:2.25rem;padding:3rem 2.25rem;align-items:center;}
+.party-img-wrapper{height:100%;min-height:340px;max-width:none;margin:0;}
+.school-cta-grid{grid-template-columns:0.95fr 1.05fr;gap:2.25rem;padding:3rem 2.25rem;align-items:center;}
+.school-img-wrapper{height:100%;min-height:340px;max-width:none;margin:0;}
 .visit-cta-grid{padding:3rem 2rem;}
 .visit-img-wrapper{height:320px;max-width:540px;margin:0 auto;}
-.expedition-cta-grid{grid-template-columns:1fr;gap:2.5rem;}
-.expedition-img-frame{height:340px;max-width:540px;margin:0 auto;}
-.expedition-cta-card{padding:2.25rem 1.75rem;}
+.expedition-cta-grid{grid-template-columns:1.15fr 0.85fr;gap:2.25rem;align-items:center;}
+.expedition-img-frame{height:380px;max-width:none;margin:0;}
+.expedition-cta-card{padding:2.75rem 2.25rem;}
 .amenities-grid{grid-template-columns:repeat(2,1fr);}
+.amenities-grid .amenity-card:last-child{grid-column:span 2;max-width:calc(50% - 0.875rem);justify-self:center;width:100%;}
 .seasons-grid{grid-template-columns:repeat(2,1fr);}
 }
 @media(max-width:768px){
@@ -1064,7 +1095,15 @@ strong,b{font-weight:600;}
 .stat-item:nth-child(odd){border-right:1px solid var(--border-light);}
 .dark .stat-item:nth-child(odd){border-right-color:var(--border-default);}
 .section{padding:3.5rem 0;}
-.journey-layout{grid-template-columns:1fr;gap:2rem;}
+.exp-card-img{height:290px;}
+.journey-layout{grid-template-columns:1fr;gap:2.5rem;}
+.journey-content{align-items:center;text-align:center;}
+.journey-content .track-divider{justify-content:center;margin:0 auto 1.25rem;width:auto;}
+.journey-content .track-divider::before{display:block;flex:1;max-width:60px;}
+.journey-content .track-divider::after{flex:1;max-width:60px;}
+.journey-content .section-title{text-align:center;margin-bottom:1.75rem;}
+.journey-content .journey-steps{text-align:left;width:100%;max-width:480px;margin-top:0;}
+.journey-content .journey-btn-wrap{display:flex;justify-content:center;width:100%;}
 .journey-img{height:300px;}
 .testimonials-grid{grid-template-columns:1fr;}
 .gallery-mosaic{grid-template-columns:1fr;grid-auto-rows:220px;gap:0.875rem;}
@@ -1073,6 +1112,7 @@ strong,b{font-weight:600;}
 .hours-ticket-grid{grid-template-columns:1fr;}
 .ticket-bottom-bar{grid-template-columns:1fr;}
 .party-packages-grid{grid-template-columns:1fr;}
+.party-packages-grid .party-card:last-child{grid-column:span 1;max-width:100%;justify-self:stretch;}
 .benefits-grid{grid-template-columns:1fr;}
 .contact-layout{grid-template-columns:1fr;}
 .hero2-split,.hero2-slide-inner{grid-template-columns:1fr;}
@@ -1088,7 +1128,7 @@ strong,b{font-weight:600;}
 .countdown-row,.countdown-grid{gap:0.75rem;}
 .countdown-unit,.countdown-item{min-width:64px;padding:0.875rem 0.5rem;}
 .countdown-num,.countdown-value{font-size:1.625rem;}
-.visit-hero,.parties-hero,.school-hero,.contact-hero{padding:3.5rem 0 3rem;}
+.visit-hero,.parties-hero,.school-hero,.contact-hero{padding:4.5rem 0 3.5rem;min-height:280px;}
 .cta-banner{padding:3.5rem 0;}
 .cta-banner-actions{flex-direction:column;align-items:center;}
 .scenic-landscape-layer{height:60px;}
@@ -1096,36 +1136,49 @@ strong,b{font-weight:600;}
 .hills-silhouette-svg{height:40px;bottom:10px;}
 .hero2-slide{padding-bottom:2.5rem;}
 .circuit-grid{grid-template-columns:1fr;}
+.waypoint-img-wrap{height:270px;}
 .fleet-specs-grid{grid-template-columns:1fr;}
+.fleet-specs-grid .fleet-card:last-child{grid-column:span 1;max-width:100%;justify-self:stretch;}
 .testi-card-large{padding:2rem 1.25rem;}
 .testi-quote-text{font-size:1.1rem;}
 .cta2-section{padding:3.5rem 0;}
-.cta2-card{padding:2.25rem 1.5rem;}
+.cta2-card{grid-template-columns:1fr;gap:2.5rem;padding:2.25rem 1.25rem;}
+.cta2-ticket-wrap{max-width:100%;margin:0 auto;width:100%;}
 .cta2-actions{flex-direction:column;width:100%;}
 .cta2-actions .btn{width:100%;justify-content:center;}
 .party-cta-section{padding:3.5rem 0;}
-.party-cta-grid{padding:2.25rem 1.5rem;}
+.party-cta-grid{grid-template-columns:1fr;gap:2rem;padding:2.25rem 1.5rem;}
 .party-cta-actions{flex-direction:column;width:100%;}
 .party-cta-actions .btn{width:100%;justify-content:center;}
-.party-img-wrapper{height:250px;}
+.party-img-wrapper{height:260px;max-width:100%;}
 .school-cta-section{padding:3.5rem 0;}
-.school-cta-grid{padding:2.25rem 1.5rem;}
+.school-cta-grid{grid-template-columns:1fr;gap:2rem;padding:2.25rem 1.5rem;}
 .school-cta-actions{flex-direction:column;width:100%;}
 .school-cta-actions .btn{width:100%;justify-content:center;}
-.school-img-wrapper{height:250px;}
+.school-img-wrapper{height:260px;max-width:100%;}
 .visit-cta-section{padding:3.5rem 0;}
 .visit-cta-grid{padding:2.25rem 1.5rem;}
 .visit-cta-actions{flex-direction:column;width:100%;}
 .visit-cta-actions .btn{width:100%;justify-content:center;}
 .visit-img-wrapper{height:250px;}
+.home-expedition-cta{padding:3.5rem 0;}
+.expedition-cta-card{padding:2.25rem 1.25rem;}
+.expedition-cta-grid{grid-template-columns:1fr;gap:2rem;}
+.expedition-media{width:100%;display:flex;justify-content:center;margin:0 auto;}
+.expedition-img-frame{height:300px;width:100%;max-width:100%;margin:0 auto;}
 }
 @media(max-width:575px){
+.testi-author-block{flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:0.75rem;}
+.testi-author-details{text-align:center;}
+.testi-author-name{justify-content:center;text-align:center;}
+.testi-author-sub{text-align:center;}
 .school-feature-img-card{height:200px;}
 .expedition-top-bar{flex-direction:column;align-items:flex-start;}
 .expedition-actions{flex-direction:column;width:100%;}
 .expedition-actions .btn{width:100%;justify-content:center;}
-.expedition-img-frame{height:360px;}
+.expedition-img-frame{height:360px;width:100%;max-width:100%;margin:0 auto;}
 .amenities-grid{grid-template-columns:1fr;}
+.amenities-grid .amenity-card:last-child{grid-column:span 1;max-width:100%;justify-self:stretch;}
 .seasons-grid{grid-template-columns:1fr;}
 .faq-helper-card{flex-direction:column;align-items:flex-start;}
 .pricing-cards-grid{grid-template-columns:1fr;}
