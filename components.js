@@ -24,7 +24,7 @@ function getNavbarHTML(activePage = '') {
   const isRTL = document.documentElement.getAttribute('dir') === 'rtl';
   const links = [
     { href: 'index.html', label: 'Home' },
-    { href: 'home2.html', label: 'Experience' },
+    { href: 'home2.html', label: 'Home 2' },
     { href: 'visit.html', label: 'Visit Us' },
     { href: 'birthday.html', label: 'Birthday Parties' },
     { href: 'school.html', label: 'School Groups' },
@@ -205,6 +205,8 @@ function initComponents(activePage = '') {
   initGalleryLightbox();
   initHeroCarousel();
   initHero2Carousel();
+  initTestiCarousel();
+  initFaqAccordion();
 }
 
 // ── DARK MODE ─────────────────────────────────────────────
@@ -749,3 +751,132 @@ function initHero2Carousel() {
   goToSlide(0);
   startTimer();
 }
+
+// ── CUSTOMER TESTIMONIAL CAROUSEL (5 SECONDS) ─────────────
+function initTestiCarousel() {
+  const carousel = document.getElementById('testiCarousel');
+  if (!carousel) return;
+
+  const slides = Array.from(carousel.querySelectorAll('.testi-slide'));
+  const dots = Array.from(carousel.querySelectorAll('.testi-dot'));
+  const prevBtn = document.getElementById('testiPrevBtn');
+  const nextBtn = document.getElementById('testiNextBtn');
+
+  if (slides.length < 2) return;
+
+  let currentIndex = 0;
+  let timer = null;
+  const slideDuration = 5000; // 5 seconds per user specification
+
+  function goToSlide(index) {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+    currentIndex = index;
+
+    slides.forEach((slide, i) => {
+      if (i === currentIndex) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    });
+
+    dots.forEach((dot, i) => {
+      if (i === currentIndex) {
+        dot.classList.add('active');
+        dot.setAttribute('aria-selected', 'true');
+      } else {
+        dot.classList.remove('active');
+        dot.setAttribute('aria-selected', 'false');
+      }
+    });
+  }
+
+  function startTimer() {
+    stopTimer();
+    timer = setInterval(() => {
+      goToSlide(currentIndex + 1);
+    }, slideDuration);
+  }
+
+  function stopTimer() {
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+    }
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      goToSlide(currentIndex - 1);
+      startTimer();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      goToSlide(currentIndex + 1);
+      startTimer();
+    });
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const idx = parseInt(dot.getAttribute('data-index'), 10);
+      goToSlide(idx);
+      startTimer();
+    });
+  });
+
+  carousel.addEventListener('mouseenter', stopTimer);
+  carousel.addEventListener('mouseleave', startTimer);
+
+  // Touch swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+  carousel.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    stopTimer();
+  }, { passive: true });
+  carousel.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    if (touchStartX - touchEndX > 50) {
+      goToSlide(currentIndex + 1);
+    } else if (touchEndX - touchStartX > 50) {
+      goToSlide(currentIndex - 1);
+    }
+    startTimer();
+  }, { passive: true });
+
+  goToSlide(0);
+  startTimer();
+}
+
+// ── FAQ ACCORDION ──────────────────────────────────────────
+function initFaqAccordion() {
+  const faqItems = document.querySelectorAll('.faq-item');
+  if (!faqItems.length) return;
+
+  faqItems.forEach(item => {
+    const questionBtn = item.querySelector('.faq-question');
+    if (!questionBtn) return;
+
+    questionBtn.addEventListener('click', () => {
+      const isAlreadyActive = item.classList.contains('active');
+
+      // Close all items in the accordion
+      faqItems.forEach(otherItem => {
+        otherItem.classList.remove('active');
+        const btn = otherItem.querySelector('.faq-question');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      });
+
+      // If clicked item wasn't already open, open it
+      if (!isAlreadyActive) {
+        item.classList.add('active');
+        questionBtn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+}
+
