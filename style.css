@@ -987,20 +987,20 @@ strong,b{font-weight:600;}
 .school-cta-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.25rem;}
 .school-cta-footer-note{font-size:0.8125rem;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:0.5rem;}
 
-/* ─── VISIT US CTA SECTION (LEFT CONTENT, RIGHT IMAGE) ─── */
+/* ─── VISIT US CTA SECTION (CENTERED CONTENT) ─── */
 .visit-cta-section{padding:5rem 0;position:relative;background:var(--bg-surface);overflow:hidden;}
 .visit-cta-card{position:relative;background:linear-gradient(135deg,#132D15 0%,#1E4620 50%,#153317 100%);border-radius:var(--radius-2xl);border:1px solid rgba(212,160,23,0.45);box-shadow:0 24px 60px rgba(10,24,10,0.35);overflow:hidden;}
 .dark .visit-cta-card{background:linear-gradient(135deg,#0E2110 0%,#183419 50%,#102611 100%);border-color:rgba(212,160,23,0.4);box-shadow:0 24px 64px rgba(0,0,0,0.6);}
-.visit-cta-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:3.5rem;align-items:center;padding:3.5rem;}
-.visit-cta-content{color:#fff;}
+.visit-cta-grid{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4.5rem 3rem;}
+.visit-cta-content{color:#fff;max-width:760px;width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;}
 .visit-cta-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(212,160,23,0.18);border:1px solid rgba(212,160,23,0.45);color:#F5D478;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.35rem 0.85rem;border-radius:var(--radius-full);margin-bottom:1.25rem;}
-.visit-cta-title{font-family:var(--font-heading);font-size:clamp(1.85rem,3.2vw,2.5rem);font-weight:700;color:#ffffff;line-height:1.25;margin-bottom:1.5rem;}
-.visit-cta-desc{font-size:1rem;line-height:1.65;color:rgba(255,255,255,0.85);margin-bottom:1.75rem;}
-.visit-cta-highlights{display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem;}
-.visit-highlight-item{display:flex;align-items:center;gap:0.75rem;font-size:0.9rem;color:rgba(255,255,255,0.92);}
+.visit-cta-title{font-family:var(--font-heading);font-size:clamp(1.85rem,3.2vw,2.5rem);font-weight:700;color:#ffffff;line-height:1.25;margin-bottom:1.75rem;text-align:center;}
+.visit-cta-desc{font-size:1rem;line-height:1.65;color:rgba(255,255,255,0.85);margin-bottom:1.75rem;text-align:center;}
+.visit-cta-highlights{display:flex;flex-direction:column;gap:0.85rem;margin:0 auto 2.25rem;max-width:580px;width:100%;}
+.visit-highlight-item{display:flex;align-items:center;gap:0.75rem;font-size:0.925rem;color:rgba(255,255,255,0.92);text-align:left;}
 .visit-highlight-icon{width:22px;height:22px;border-radius:50%;background:rgba(74,222,128,0.2);color:#4ADE80;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-.visit-cta-actions{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.25rem;}
-.visit-cta-footer-note{font-size:0.8125rem;color:rgba(255,255,255,0.7);display:flex;align-items:center;gap:0.5rem;}
+.visit-cta-actions{display:flex;align-items:center;justify-content:center;gap:1.25rem;flex-wrap:wrap;margin-bottom:0;}
+.visit-cta-footer-note{font-size:0.8125rem;color:rgba(255,255,255,0.7);display:flex;align-items:center;justify-content:center;gap:0.5rem;}
 .visit-cta-media{position:relative;}
 .visit-img-wrapper{position:relative;height:380px;border-radius:var(--radius-xl);overflow:hidden;box-shadow:0 16px 40px rgba(0,0,0,0.4);border:2px solid rgba(212,160,23,0.5);}
 .visit-cta-img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s ease;}
@@ -1044,7 +1044,7 @@ strong,b{font-weight:600;}
 .party-img-wrapper{height:320px;max-width:540px;margin:0 auto;}
 .school-cta-grid{grid-template-columns:1fr;gap:2.5rem;padding:3rem 2rem;}
 .school-img-wrapper{height:320px;max-width:540px;margin:0 auto;}
-.visit-cta-grid{grid-template-columns:1fr;gap:2.5rem;padding:3rem 2rem;}
+.visit-cta-grid{padding:3rem 2rem;}
 .visit-img-wrapper{height:320px;max-width:540px;margin:0 auto;}
 .expedition-cta-grid{grid-template-columns:1fr;gap:2.5rem;}
 .expedition-img-frame{height:340px;max-width:540px;margin:0 auto;}
