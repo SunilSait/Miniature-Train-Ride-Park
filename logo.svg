@@ -1,36 +1,91 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
-  <!-- Outer circle -->
-  <circle cx="40" cy="40" r="38" fill="#2C5F2E" stroke="#D4A017" stroke-width="2"/>
-  <!-- Track lines at bottom -->
-  <rect x="10" y="62" width="60" height="3" rx="1.5" fill="#D4A017"/>
-  <rect x="15" y="60" width="4" height="7" rx="0.5" fill="#D4A017"/>
-  <rect x="25" y="60" width="4" height="7" rx="0.5" fill="#D4A017"/>
-  <rect x="35" y="60" width="4" height="7" rx="0.5" fill="#D4A017"/>
-  <rect x="45" y="60" width="4" height="7" rx="0.5" fill="#D4A017"/>
-  <rect x="55" y="60" width="4" height="7" rx="0.5" fill="#D4A017"/>
-  <!-- Locomotive body -->
-  <rect x="14" y="44" width="38" height="16" rx="3" fill="#D4A017"/>
-  <!-- Cab -->
-  <rect x="38" y="38" width="14" height="22" rx="2" fill="#B8860B"/>
-  <!-- Boiler -->
-  <ellipse cx="31" cy="45" rx="16" ry="9" fill="#C8961B"/>
-  <!-- Chimney -->
-  <rect x="18" y="32" width="5" height="12" rx="2" fill="#2C5F2E"/>
-  <!-- Chimney top -->
-  <rect x="16" y="30" width="9" height="4" rx="2" fill="#2C5F2E"/>
-  <!-- Steam puffs -->
-  <circle cx="21" cy="26" r="3" fill="white" opacity="0.6"/>
-  <circle cx="25" cy="22" r="2.5" fill="white" opacity="0.4"/>
-  <circle cx="29" cy="19" r="2" fill="white" opacity="0.25"/>
-  <!-- Wheels -->
-  <circle cx="26" cy="58" r="5" fill="#2C5F2E" stroke="#D4A017" stroke-width="1.5"/>
-  <circle cx="26" cy="58" r="2" fill="#D4A017"/>
-  <circle cx="40" cy="58" r="5" fill="#2C5F2E" stroke="#D4A017" stroke-width="1.5"/>
-  <circle cx="40" cy="58" r="2" fill="#D4A017"/>
-  <circle cx="52" cy="58" r="4" fill="#2C5F2E" stroke="#D4A017" stroke-width="1.5"/>
-  <circle cx="52" cy="58" r="1.5" fill="#D4A017"/>
-  <!-- Window on cab -->
-  <rect x="42" y="40" width="8" height="7" rx="1" fill="#2C5F2E" stroke="#D4A017" stroke-width="0.8"/>
-  <!-- Headlight -->
-  <circle cx="14" cy="50" r="3" fill="#FFF8DC" stroke="#D4A017" stroke-width="0.8"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none">
+  <!-- Definitions for Gradients & Drop Shadows -->
+  <defs>
+    <linearGradient id="goldPlate" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082"/>
+      <stop offset="50%" stop-color="#D4A017"/>
+      <stop offset="100%" stop-color="#996515"/>
+    </linearGradient>
+    <linearGradient id="emeraldBase" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#347036"/>
+      <stop offset="50%" stop-color="#2C5F2E"/>
+      <stop offset="100%" stop-color="#1A3B1C"/>
+    </linearGradient>
+    <radialGradient id="lanternGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="45%" stop-color="#FFF9C4"/>
+      <stop offset="100%" stop-color="#F5D478"/>
+    </radialGradient>
+    <filter id="badgeShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Crest Badge -->
+  <circle cx="48" cy="48" r="45" fill="url(#emeraldBase)" stroke="url(#goldPlate)" stroke-width="2.5" filter="url(#badgeShadow)"/>
+  <circle cx="48" cy="48" r="41" stroke="#D4A017" stroke-width="0.75" stroke-opacity="0.7"/>
+  <circle cx="48" cy="48" r="39.5" stroke="#FFE082" stroke-width="0.75" stroke-dasharray="1.5 2" stroke-opacity="0.85"/>
+
+  <!-- Heritage Railway Compass / Rivet Accents -->
+  <circle cx="48" cy="5.5" r="1.5" fill="#FFE082"/>
+  <circle cx="48" cy="90.5" r="1.5" fill="#FFE082"/>
+  <circle cx="5.5" cy="48" r="1.5" fill="#FFE082"/>
+  <circle cx="90.5" cy="48" r="1.5" fill="#FFE082"/>
+
+  <!-- Billowing Steam Clouds -->
+  <path d="M47 16 C44 11 48 6 53 5 C57 4 61 7 60 10 C63 9 66 11 65 14 C67 15 67 18 64 19 C60 20 54 19 47 16 Z" fill="#FFFFFF" fill-opacity="0.9"/>
+  <circle cx="58" cy="9" r="2.2" fill="#FFFFFF" fill-opacity="0.7"/>
+
+  <!-- Smokestack Chimney -->
+  <path d="M43 17 L53 17 L51 25 L45 25 Z" fill="url(#goldPlate)"/>
+  <rect x="42" y="15" width="12" height="3" rx="1.2" fill="#FFE082"/>
+
+  <!-- Brass Steam Dome (Right) & Whistle (Left) -->
+  <ellipse cx="57" cy="27" rx="3.5" ry="4" fill="#D4A017"/>
+  <rect x="38" y="23" width="2" height="5" rx="1" fill="#FFE082"/>
+
+  <!-- Locomotive Cab Structure (Background of Boiler) -->
+  <path d="M26 46 L26 36 Q48 29 70 36 L70 46 Z" fill="#204422" stroke="#D4A017" stroke-width="1.2"/>
+  <path d="M25 35 Q48 27 71 35" stroke="#FFE082" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- Cab Windows with Warm Interior Light -->
+  <rect x="29" y="37" width="7" height="6.5" rx="1.5" fill="#FFE082" fill-opacity="0.95" stroke="#B8860B" stroke-width="0.8"/>
+  <rect x="60" y="37" width="7" height="6.5" rx="1.5" fill="#FFE082" fill-opacity="0.95" stroke="#B8860B" stroke-width="0.8"/>
+
+  <!-- Main Boiler Barrel & Smokebox Front Door -->
+  <ellipse cx="48" cy="47" rx="17.5" ry="17.5" fill="#1E4320" stroke="url(#goldPlate)" stroke-width="2.2"/>
+  <circle cx="48" cy="47" r="14.5" stroke="#FFE082" stroke-width="0.8" stroke-dasharray="2 1.5"/>
+  <circle cx="48" cy="47" r="12" fill="#2C5F2E" stroke="#D4A017" stroke-width="1"/>
+
+  <!-- Central Brass Headlight Lantern -->
+  <rect x="42.5" y="39.5" width="11" height="11" rx="2" fill="url(#goldPlate)" stroke="#FFE082" stroke-width="0.8"/>
+  <circle cx="48" cy="45" r="4.2" fill="url(#lanternGlow)"/>
+  <circle cx="48" cy="45" r="2.2" fill="#FFFFFF"/>
+  <path d="M46 39.5 L46 37 L50 37 L50 39.5" stroke="#FFE082" stroke-width="1" fill="none"/>
+
+  <!-- Locomotive Heavy Buffer Beam -->
+  <rect x="22" y="62" width="52" height="5" rx="1.5" fill="url(#goldPlate)"/>
+  <line x1="22" y1="64.5" x2="74" y2="64.5" stroke="#FFE082" stroke-width="0.75"/>
+
+  <!-- Left & Right Spring Buffers -->
+  <circle cx="26" cy="64.5" r="3.2" fill="#204422" stroke="#FFE082" stroke-width="1.2"/>
+  <circle cx="26" cy="64.5" r="1.2" fill="#FFE082"/>
+  <circle cx="70" cy="64.5" r="3.2" fill="#204422" stroke="#FFE082" stroke-width="1.2"/>
+  <circle cx="70" cy="64.5" r="1.2" fill="#FFE082"/>
+
+  <!-- Locomotive Cowcatcher / Pilot Grill -->
+  <path d="M30 67 L66 67 L59 76 L37 76 Z" fill="#1C3D1E" stroke="#D4A017" stroke-width="1.2"/>
+  <line x1="41" y1="67" x2="43" y2="76" stroke="#FFE082" stroke-width="1"/>
+  <line x1="48" y1="67" x2="48" y2="76" stroke="#FFE082" stroke-width="1.2"/>
+  <line x1="55" y1="67" x2="53" y2="76" stroke="#FFE082" stroke-width="1"/>
+
+  <!-- Railway Wooden Sleeper Ties -->
+  <rect x="28" y="78" width="40" height="2.5" rx="1" fill="#996515"/>
+  <rect x="21" y="83" width="54" height="3" rx="1.2" fill="#B8860B"/>
+
+  <!-- Perspective Steel Track Rails -->
+  <path d="M25 89 L38 74" stroke="url(#goldPlate)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M25 89 L38 74" stroke="#FFF9C4" stroke-width="0.8" stroke-linecap="round"/>
+  <path d="M71 89 L58 74" stroke="url(#goldPlate)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M71 89 L58 74" stroke="#FFF9C4" stroke-width="0.8" stroke-linecap="round"/>
 </svg>

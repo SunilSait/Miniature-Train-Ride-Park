@@ -99,7 +99,7 @@ function getFooterHTML() {
       <!-- Column 1: Brand & Socials -->
       <div class="footer-brand">
         <a href="index.html" class="nav-logo footer-logo" aria-label="Miniature Train Ride Park Home">
-          <img src="logo.svg" alt="Train Park Logo" class="nav-logo-img" style="filter:brightness(10)">
+          <img src="logo.svg" alt="Train Park Logo" class="nav-logo-img">
           <div class="nav-logo-text">
             <span class="brand-top" style="color:#fff;">TrainPark</span>
             <span class="brand-bottom">Ride &amp; Play</span>
@@ -736,6 +736,15 @@ function initHero2Carousel() {
     }
     startTimer();
   }, { passive: true });
+
+  // Interactive Cursor Lantern Spotlight Tracking
+  hero2.addEventListener('mousemove', (e) => {
+    const rect = hero2.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    hero2.style.setProperty('--mouse-x', `${x.toFixed(1)}%`);
+    hero2.style.setProperty('--mouse-y', `${y.toFixed(1)}%`);
+  });
 
   goToSlide(0);
   startTimer();

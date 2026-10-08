@@ -1,9 +1,10 @@
 /* ===== MINIATURE TRAIN RIDE PARK === */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 :root{--primary:#2C5F2E;--primary-hover:#245028;--primary-light:#EEF5EE;--primary-glow:rgba(44,95,46,0.25);--primary-subtle:rgba(44,95,46,0.08);--secondary:#D4A017;--secondary-hover:#B8860B;--secondary-light:#FEF9EC;--text-heading:#1A2E1B;--text-body:#4A5568;--text-muted:#7B8A8C;--bg-body:#FFFFFF;--bg-surface:#F7FAF7;--bg-card:#FFFFFF;--bg-warm:#FFFBF0;--border-default:#E2EAE2;--border-light:#EDF5ED;--shadow-sm:0 1px 3px rgba(0,0,0,0.04);--shadow-md:0 4px 16px rgba(0,0,0,0.06);--shadow-lg:0 12px 40px rgba(0,0,0,0.08);--shadow-xl:0 24px 64px rgba(0,0,0,0.10);--shadow-card:0 2px 12px rgba(0,0,0,0.05);--shadow-card-hover:0 12px 36px rgba(44,95,46,0.14),0 4px 12px rgba(0,0,0,0.06);--font-heading:'Outfit',-apple-system,BlinkMacSystemFont,sans-serif;--font-body:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;--radius-sm:0.5rem;--radius-md:0.75rem;--radius-lg:1rem;--radius-xl:1.25rem;--radius-2xl:1.5rem;--radius-full:9999px;--transition-fast:all 0.2s cubic-bezier(0.4,0,0.2,1);--transition-smooth:all 0.35s cubic-bezier(0.4,0,0.2,1);--transition-premium:all 0.5s cubic-bezier(0.16,1,0.3,1);--gutter-x:1.25rem;}
-.dark{--text-heading:#F5F7F5;--text-body:#D1DCD1;--text-muted:#98AB98;--bg-body:#0E100E;--bg-surface:#141714;--bg-card:#1C201C;--bg-warm:#161916;--border-default:#2A302A;--border-light:#202420;--shadow-sm:0 1px 3px rgba(0,0,0,0.3);--shadow-md:0 4px 16px rgba(0,0,0,0.4);--shadow-lg:0 12px 40px rgba(0,0,0,0.5);--shadow-xl:0 24px 64px rgba(0,0,0,0.6);--shadow-card:0 2px 12px rgba(0,0,0,0.3);--shadow-card-hover:0 12px 36px rgba(74,222,128,0.15),0 4px 12px rgba(0,0,0,0.4);}
+.dark{--text-heading:#F5F7F5;--text-body:#D1DCD1;--text-muted:#98AB98;--bg-body:#0E100E;--bg-surface:#141714;--bg-card:#1C201C;--bg-warm:#161916;--border-default:#2A302A;--border-light:#202420;--primary-light:rgba(44,95,46,0.25);--primary-subtle:rgba(74,222,128,0.12);--secondary-light:rgba(212,160,23,0.12);--shadow-sm:0 1px 3px rgba(0,0,0,0.3);--shadow-md:0 4px 16px rgba(0,0,0,0.4);--shadow-lg:0 12px 40px rgba(0,0,0,0.5);--shadow-xl:0 24px 64px rgba(0,0,0,0.6);--shadow-card:0 2px 12px rgba(0,0,0,0.3);--shadow-card-hover:0 12px 36px rgba(74,222,128,0.15),0 4px 12px rgba(0,0,0,0.4);}
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+section[id],div[id]{scroll-margin-top:80px;}
 body{font-family:var(--font-body);font-weight:400;color:var(--text-body);background-color:var(--bg-body);line-height:1.7;transition:background-color 0.3s ease,color 0.3s ease;overflow-x:hidden;}
 img{max-width:100%;height:auto;display:block;}
 a{text-decoration:none;color:inherit;transition:var(--transition-fast);}
@@ -47,11 +48,12 @@ strong,b{font-weight:600;}
 .navbar.scrolled{box-shadow:var(--shadow-md);}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 var(--gutter-x);height:68px;}
 .nav-logo{display:flex;align-items:center;gap:0.625rem;flex-shrink:0;text-decoration:none;}
-.nav-logo-img{width:42px;height:42px;object-fit:contain;flex-shrink:0;}
-.nav-logo-text{display:flex;flex-direction:column;line-height:1.1;}
-.brand-top{font-family:var(--font-heading);font-weight:700;font-size:1.05rem;color:var(--text-heading);}
+.nav-logo-img{width:44px;height:44px;object-fit:contain;flex-shrink:0;filter:drop-shadow(0 2px 6px rgba(0,0,0,0.15));transition:transform 0.3s cubic-bezier(0.16,1,0.3,1);}
+.nav-logo:hover .nav-logo-img{transform:scale(1.06) rotate(-2deg);}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1.05;}
+.brand-top{font-family:var(--font-heading);font-weight:800;font-size:1.15rem;color:var(--text-heading);letter-spacing:-0.01em;}
 .dark .brand-top{color:#FFFFFF;}
-.brand-bottom{font-weight:600;font-size:0.6875rem;color:var(--secondary);letter-spacing:0.08em;text-transform:uppercase;}
+.brand-bottom{font-weight:700;font-size:0.625rem;color:var(--secondary);letter-spacing:0.14em;text-transform:uppercase;margin-top:1px;}
 .nav-links{display:flex;align-items:center;gap:1.5rem;}
 .nav-link{font-size:0.875rem;font-weight:500;color:var(--text-body);padding:0.25rem 0;position:relative;transition:var(--transition-fast);white-space:nowrap;}
 .dark .nav-link{color:rgba(255,255,255,0.72);}
@@ -247,24 +249,110 @@ strong,b{font-weight:600;}
 .visit-hero-content{position:relative;z-index:2;}
 .visit-hero h1,.parties-hero h1,.school-hero h1,.contact-hero h1{color:#fff;}
 .visit-hero p,.parties-hero p,.school-hero p,.contact-hero p{color:rgba(255,255,255,0.85);margin-top:0.75rem;font-size:1.1rem;}
+/* ─── SEPARATED OPENING HOURS SECTION ─── */
+.hours-feature-layout{display:grid;grid-template-columns:1.2fr 0.95fr;gap:2rem;align-items:stretch;}
+.hours-card-full{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-card);display:flex;flex-direction:column;}
+.hours-card-header{background:var(--primary);color:#fff;padding:1.35rem 1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.hours-header-info{display:flex;align-items:center;gap:1rem;}
+.hours-icon-badge{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.15);display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;}
+.hours-card-header h3{color:#fff;font-size:1.15rem;font-weight:700;margin:0;}
+.hours-card-header p{color:rgba(255,255,255,0.8);font-size:0.8125rem;margin:0;}
+.hours-status-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(212,160,23,0.22);border:1px solid rgba(212,160,23,0.45);color:#F5D478;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;padding:0.35rem 0.8rem;border-radius:var(--radius-full);}
+.status-indicator-dot{width:8px;height:8px;border-radius:50%;background:#4ADE80;box-shadow:0 0 0 3px rgba(74,222,128,0.3);animation:pulse 2s infinite;}
+.hours-schedule-list{padding:1.25rem 1.75rem;flex:1;}
+.hours-schedule-list .hours-row{display:flex;justify-content:space-between;align-items:center;padding:0.9rem 0;border-bottom:1px solid var(--border-light);gap:1rem;}
+.hours-schedule-list .hours-row:last-child{border-bottom:none;}
+.hours-day-info{display:flex;align-items:center;gap:0.75rem;flex-wrap:wrap;}
+.hours-day{font-weight:600;color:var(--text-heading);font-size:0.9375rem;}
+.hours-tag{font-size:0.6875rem;font-weight:600;padding:0.2rem 0.55rem;border-radius:var(--radius-full);background:var(--primary-subtle);color:var(--primary);text-transform:uppercase;letter-spacing:0.04em;}
+.hours-tag.popular{background:var(--secondary-light);color:var(--secondary-hover);border:1px solid rgba(212,160,23,0.3);}
+.hours-time{font-family:var(--font-heading);font-size:1.05rem;font-weight:700;color:var(--primary);}
+.hours-closed{font-size:0.875rem;font-weight:600;color:var(--text-muted);background:var(--bg-surface);padding:0.25rem 0.75rem;border-radius:var(--radius-sm);border:1px solid var(--border-light);}
+.hours-card-footer{padding:0 1.75rem 1.75rem;}
+
+.hours-station-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-xl);box-shadow:var(--shadow-card);overflow:hidden;display:flex;flex-direction:column;}
+.station-card-image-wrap{position:relative;height:220px;overflow:hidden;}
+.station-card-img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1);}
+.hours-station-card:hover .station-card-img{transform:scale(1.04);}
+.station-card-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(14,28,14,0.75) 100%);display:flex;align-items:flex-end;padding:1.25rem;}
+.station-badge{background:rgba(255,255,255,0.95);color:var(--primary);padding:0.35rem 0.85rem;border-radius:var(--radius-full);font-size:0.75rem;font-weight:700;letter-spacing:0.04em;box-shadow:var(--shadow-sm);}
+.dark .station-badge{background:rgba(20,28,20,0.9);color:#F5F7F5;border:1px solid var(--border-default);}
+.station-card-body{padding:1.75rem;flex:1;display:flex;flex-direction:column;justify-content:center;}
+.station-title{font-family:var(--font-heading);font-size:1.15rem;font-weight:700;color:var(--text-heading);margin-bottom:1.25rem;}
+.station-perks-list{display:flex;flex-direction:column;gap:1.1rem;}
+.station-perk{display:flex;gap:0.9rem;align-items:flex-start;}
+.perk-icon{width:38px;height:38px;border-radius:var(--radius-md);background:var(--primary-subtle);color:var(--primary);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.station-perk strong{display:block;font-size:0.9375rem;color:var(--text-heading);margin-bottom:0.15rem;}
+.station-perk p{font-size:0.8125rem;color:var(--text-muted);margin:0;line-height:1.5;}
+
+/* ─── SEPARATED TICKET PRICES SECTION ─── */
+.pricing-cards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2.5rem;}
+.pricing-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-xl);padding:2.25rem 1.5rem 1.75rem;display:flex;flex-direction:column;position:relative;box-shadow:var(--shadow-card);transition:var(--transition-smooth);text-align:center;}
+.pricing-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-card-hover);}
+.pricing-card.featured{border:2px solid var(--primary);box-shadow:0 12px 36px rgba(44,95,46,0.16);}
+.featured-ribbon{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--secondary);color:#fff;font-size:0.6875rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;padding:0.25rem 0.9rem;border-radius:var(--radius-full);box-shadow:0 2px 8px rgba(212,160,23,0.35);white-space:nowrap;}
+.pricing-type{font-family:var(--font-heading);font-size:1.25rem;font-weight:700;color:var(--text-heading);display:block;}
+.pricing-sub{font-size:0.8125rem;color:var(--text-muted);display:block;margin-top:0.25rem;margin-bottom:1.25rem;}
+.pricing-amount{display:flex;align-items:baseline;justify-content:center;gap:0.2rem;margin-bottom:0.25rem;}
+.pricing-amount .currency{font-size:1.35rem;font-weight:700;color:var(--primary);}
+.pricing-amount .price-val{font-family:var(--font-heading);font-size:2.5rem;font-weight:800;color:var(--primary);line-height:1;}
+.pricing-per{font-size:0.75rem;color:var(--text-muted);display:block;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:0.04em;font-weight:600;}
+.pricing-perks{border-top:1px solid var(--border-light);padding-top:1.25rem;display:flex;flex-direction:column;gap:0.75rem;text-align:left;font-size:0.85rem;color:var(--text-body);list-style:none;margin:0;flex:1;}
+.pricing-perks li{display:flex;align-items:flex-start;gap:0.6rem;line-height:1.45;}
+.pricing-perks li svg{color:var(--primary);flex-shrink:0;margin-top:2px;}
+.pricing-card.featured .pricing-perks li svg{color:var(--secondary);}
+
+.ticket-bottom-bar{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem;}
+.ticket-special-pill{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1rem;box-shadow:var(--shadow-sm);font-size:0.875rem;color:var(--text-body);}
+.ticket-special-pill strong{color:var(--text-heading);}
+.pill-badge{background:var(--secondary);color:#fff;font-weight:800;font-size:0.72rem;letter-spacing:0.08em;padding:0.4rem 0.8rem;border-radius:var(--radius-md);flex-shrink:0;}
+.pill-badge.secondary-badge{background:var(--primary);}
+
+.notice-box{background:var(--secondary-light);border:1px solid rgba(212,160,23,0.25);border-radius:var(--radius-md);padding:1rem 1.25rem;display:flex;gap:0.75rem;align-items:flex-start;margin-top:1.5rem;}
+.notice-box p{font-size:0.875rem;color:var(--text-body);margin:0;}
+.notice-box p strong{color:var(--text-heading);}
+
+/* ─── DARK MODE REFINEMENTS FOR HOURS & TICKETS ─── */
+.dark .hours-card-full,
+.dark .hours-station-card{background:var(--bg-card);border-color:var(--border-default);}
+.dark .hours-card-header{background:linear-gradient(135deg,#1E4220 0%,#132B15 100%);border-bottom:1px solid var(--border-default);}
+.dark .hours-schedule-list .hours-row{border-bottom-color:var(--border-default);}
+.dark .hours-time{color:#4ADE80;}
+.dark .hours-tag{background:rgba(74,222,128,0.12);color:#4ADE80;border:1px solid rgba(74,222,128,0.25);}
+.dark .hours-tag.popular{background:rgba(212,160,23,0.16);color:#F5D478;border-color:rgba(212,160,23,0.35);}
+.dark .hours-closed{color:var(--text-muted);background:rgba(255,255,255,0.04);border-color:var(--border-default);}
+.dark .perk-icon{background:rgba(74,222,128,0.12);color:#4ADE80;border:1px solid rgba(74,222,128,0.25);}
+.dark .station-perk strong{color:var(--text-heading);}
+.dark .station-perk p{color:var(--text-muted);}
+
+.dark .notice-box{background:rgba(212,160,23,0.08);border:1px solid rgba(212,160,23,0.28);}
+.dark .notice-box p{color:#D1DCD1;}
+.dark .notice-box p strong{color:#F5D478;}
+.dark .notice-box svg{stroke:#F5D478;}
+
+.dark .pricing-card{background:var(--bg-card);border-color:var(--border-default);}
+.dark .pricing-amount .currency,
+.dark .pricing-amount .price-val{color:#4ADE80;}
+.dark .pricing-card.featured{border-color:#4ADE80;box-shadow:0 12px 36px rgba(74,222,128,0.14);}
+.dark .pricing-card.featured .pricing-amount .currency,
+.dark .pricing-card.featured .price-val{color:var(--secondary);}
+.dark .pricing-perks{border-top-color:var(--border-default);}
+.dark .pricing-perks li svg{color:#4ADE80;}
+.dark .pricing-card.featured .pricing-perks li svg{color:var(--secondary);}
+.dark .ticket-special-pill{background:var(--bg-card);border-color:var(--border-default);}
+.dark .pill-badge.secondary-badge{background:#1E4220;border:1px solid rgba(74,222,128,0.35);color:#E2ECE2;}
+
 .hours-ticket-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:3rem;}
 .hours-card,.ticket-card{background:var(--bg-card);border:1px solid var(--border-light);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-md);}
 .card-header-strip{background:var(--primary);padding:1.25rem 1.75rem;display:flex;align-items:center;gap:0.75rem;color:#fff;}
 .card-header-strip h3{color:#fff;font-size:1.125rem;}
 .card-body-pad{padding:1.75rem;}
-.hours-row{display:flex;justify-content:space-between;align-items:center;padding:0.75rem 0;border-bottom:1px solid var(--border-light);}
-.hours-row:last-child{border-bottom:none;}
-.hours-day{font-weight:600;color:var(--text-heading);font-size:0.9375rem;}
-.hours-time{color:var(--primary);font-weight:600;font-size:0.9375rem;}
-.hours-closed{color:var(--text-muted);}
 .ticket-row{display:flex;justify-content:space-between;align-items:center;padding:1rem 0;border-bottom:1px solid var(--border-light);}
 .ticket-row:last-child{border-bottom:none;}
 .ticket-type{font-weight:600;color:var(--text-heading);}
 .ticket-age{font-size:0.8125rem;color:var(--text-muted);display:block;font-weight:400;}
 .ticket-price{font-family:var(--font-heading);font-size:1.375rem;font-weight:700;color:var(--primary);}
 .ticket-free{color:var(--secondary);font-weight:700;font-size:1.125rem;}
-.notice-box{background:var(--secondary-light);border:1px solid rgba(212,160,23,0.25);border-radius:var(--radius-md);padding:1rem 1.25rem;display:flex;gap:0.75rem;align-items:flex-start;margin-top:1.5rem;}
-.notice-box p{font-size:0.875rem;color:var(--text-body);}
 .parties-hero{background:linear-gradient(135deg,#1A4A1C 0%,var(--primary) 100%);padding:5rem 0 4rem;text-align:center;color:#fff;position:relative;overflow:hidden;}
 .parties-hero::before{content:'';position:absolute;inset:0;background-image:url('assets/images/birthday_party_train_1791302629663.jpg');background-size:cover;background-position:center top;opacity:0.15;}
 .parties-hero-content{position:relative;z-index:2;}
@@ -409,89 +497,142 @@ strong,b{font-weight:600;}
 .hero2-split,.hero2-split-carousel{position:relative;min-height:calc(100vh - 68px);background-color:#FFFFFF;background-image:radial-gradient(ellipse at 85% 30%, rgba(212,160,23,0.12) 0%, transparent 55%), radial-gradient(ellipse at 15% 80%, rgba(44,95,46,0.06) 0%, transparent 60%), linear-gradient(180deg,#FFFFFF 0%,#F8FAF8 100%);overflow:hidden;display:flex;flex-direction:column;justify-content:center;}
 .hero2-split::before,.hero2-split-carousel::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(44,95,46,0.035) 0,rgba(44,95,46,0.035) 1px,transparent 1px,transparent 48px),repeating-linear-gradient(0deg,rgba(44,95,46,0.035) 0,rgba(44,95,46,0.035) 1px,transparent 1px,transparent 48px);pointer-events:none;z-index:1;}
 .dark .hero2-split,.dark .hero2-split-carousel{background-color:#0E100E;background-image:radial-gradient(ellipse at 80% 50%, rgba(212,160,23,0.14) 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(44,95,46,0.18) 0%, transparent 60%), linear-gradient(135deg,#0A0C0A 0%,#141714 50%,#0E110E 100%);}
-.dark .hero2-split::before,.dark .hero2-split-carousel::before{background-image:repeating-linear-gradient(90deg,rgba(255,255,255,0.02) 0,rgba(255,255,255,0.02) 1px,transparent 1px,transparent 48px),repeating-linear-gradient(0deg,rgba(255,255,255,0.02) 0,rgba(255,255,255,0.02) 1px,transparent 1px,transparent 48px);}
+.hero2-split-carousel::after{content:'';position:absolute;inset:0;background:radial-gradient(550px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(212,160,23,0.07) 0%, transparent 60%);pointer-events:none;z-index:1;transition:background 0.08s ease;}
+.dark .hero2-split-carousel::after{background:radial-gradient(550px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(245,212,120,0.12) 0%, transparent 60%);}
 
-/* ─── THEME BACKGROUND ANIMATION LAYERS (REROLL) ─── */
+
+/* ─── THEME BACKGROUND ANIMATION LAYERS (MINIATURE TRAIN PARK) ─── */
 .hero2-theme-fx{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1;}
 
-/* Luminous Mesh Gradient Fields */
-.fx-mesh{position:absolute;border-radius:50%;filter:blur(90px);pointer-events:none;opacity:0.42;}
-.fx-mesh-gold{width:560px;height:560px;background:radial-gradient(circle,rgba(212,160,23,0.35) 0%,rgba(212,160,23,0.08) 50%,transparent 70%);top:-15%;left:20%;animation:meshBreathe1 16s ease-in-out infinite alternate;}
-.fx-mesh-emerald{width:640px;height:640px;background:radial-gradient(circle,rgba(44,95,46,0.5) 0%,rgba(74,222,128,0.15) 50%,transparent 70%);bottom:-20%;right:0%;animation:meshBreathe2 20s ease-in-out infinite alternate;}
-.fx-mesh-forest{width:400px;height:400px;background:radial-gradient(circle,rgba(245,212,120,0.22) 0%,transparent 70%);top:30%;left:-8%;animation:meshBreathe3 14s ease-in-out infinite alternate;}
+/* Luminous Ambient Mesh Fields */
+.fx-mesh{position:absolute;border-radius:50%;filter:blur(85px);pointer-events:none;opacity:0.4;}
+.fx-mesh-gold{width:540px;height:540px;background:radial-gradient(circle,rgba(212,160,23,0.3) 0%,rgba(212,160,23,0.06) 50%,transparent 70%);top:-10%;left:22%;animation:meshBreathe1 16s ease-in-out infinite alternate;}
+.fx-mesh-emerald{width:620px;height:620px;background:radial-gradient(circle,rgba(44,95,46,0.35) 0%,rgba(74,222,128,0.1) 50%,transparent 70%);bottom:-15%;right:0%;animation:meshBreathe2 20s ease-in-out infinite alternate;}
+@keyframes meshBreathe1{0%{transform:translate(0,0) scale(1);}50%{transform:translate(35px,25px) scale(1.12);}100%{transform:translate(-25px,35px) scale(0.95);}}
+@keyframes meshBreathe2{0%{transform:translate(0,0) scale(1);}50%{transform:translate(-40px,-30px) scale(1.15);}100%{transform:translate(25px,-20px) scale(0.9);}}
 
-@keyframes meshBreathe1{0%{transform:translate(0,0) scale(1);}50%{transform:translate(40px,30px) scale(1.15);}100%{transform:translate(-30px,45px) scale(0.92);}}
-@keyframes meshBreathe2{0%{transform:translate(0,0) scale(1);}50%{transform:translate(-50px,-40px) scale(1.18);}100%{transform:translate(30px,-25px) scale(0.88);}}
-@keyframes meshBreathe3{0%{transform:translate(0,0) scale(1);}50%{transform:translate(35px,-30px) scale(1.1);}100%{transform:translate(-20px,20px) scale(1);}}
+/* ─── SCENIC MINIATURE RAILWAY LANDSCAPE ─── */
+.scenic-landscape-layer{position:absolute;bottom:0;left:0;right:0;height:72px;z-index:2;pointer-events:none;overflow:hidden;}
 
-/* Animated Railway Flow Lines & Circuit Curves */
-.railway-flow-lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;}
-.rail-path-glow{stroke-dasharray:120 400;animation:flowRailLight 12s linear infinite;}
-.rail-glow-1{animation:flowRailLight 9s linear infinite;}
-.rail-glow-2{animation:flowRailLight 14s 3s linear infinite;}
-.rail-glow-3{animation:flowRailLight 11s 6s linear infinite;}
+/* Hills & Pine Tree Silhouettes */
+.hills-silhouette-svg{position:absolute;bottom:14px;left:0;width:100%;height:48px;pointer-events:none;}
+.hill-back{fill:rgba(44,95,46,0.08);transition:fill 0.3s ease;}
+.hill-front{fill:rgba(44,95,46,0.14);transition:fill 0.3s ease;}
+.mini-pines polygon{fill:rgba(44,95,46,0.25);transition:fill 0.3s ease;}
+.dark .hill-back{fill:rgba(20,38,22,0.55);}
+.dark .hill-front{fill:rgba(28,52,30,0.7);}
+.dark .mini-pines polygon{fill:rgba(44,95,46,0.45);}
 
-@keyframes flowRailLight{
-  0%{stroke-dashoffset:520;}
-  100%{stroke-dashoffset:-520;}
+/* ─── SCENIC TRACK SYSTEM (FLUSH AT BOTTOM) ─── */
+.scenic-track-system{position:absolute;bottom:0;left:0;right:0;height:26px;z-index:3;pointer-events:none;}
+.track-ballast-bed{position:absolute;bottom:0;left:0;right:0;height:14px;background:linear-gradient(to top, rgba(44,95,46,0.12) 0%, transparent 100%);}
+.dark .track-ballast-bed{background:linear-gradient(to top, rgba(14,17,14,0.8) 0%, transparent 100%);}
+
+/* Wooden Ties (Sleepers) */
+.track-wooden-ties{position:absolute;bottom:1px;left:0;right:0;height:16px;background:repeating-linear-gradient(90deg, transparent 0px, transparent 16px, rgba(44,95,46,0.35) 16px, rgba(44,95,46,0.35) 22px);width:200%;animation:trackTieDrift 12s linear infinite;}
+.dark .track-wooden-ties{background:repeating-linear-gradient(90deg, transparent 0px, transparent 16px, rgba(212,160,23,0.3) 16px, rgba(212,160,23,0.3) 22px);}
+@keyframes trackTieDrift{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+[dir="rtl"] .track-wooden-ties{animation:trackTieDriftRTL 12s linear infinite;}
+@keyframes trackTieDriftRTL{from{transform:translateX(0);}to{transform:translateX(50%);}}
+
+/* Polished Steel Track Rails */
+.track-steel-rail{position:absolute;left:0;right:0;height:2.5px;background:linear-gradient(90deg, #B8860B 0%, #F5D478 50%, #B8860B 100%);box-shadow:0 0 8px rgba(212,160,23,0.5);}
+.track-rail-top{bottom:15px;}
+.track-rail-bottom{bottom:3px;}
+.track-glimmer-line{position:absolute;bottom:2px;left:-200px;width:180px;height:18px;background:radial-gradient(ellipse at center, rgba(255,224,130,0.8) 0%, transparent 70%);filter:blur(3px);animation:railGlimmerSweep 16s cubic-bezier(0.4,0,0.2,1) infinite;}
+@keyframes railGlimmerSweep{0%{transform:translateX(-10vw);}100%{transform:translateX(120vw);}}
+
+/* ─── MINIATURE RAILWAY SEMAPHORE SIGNAL ─── */
+.railway-semaphore-post{position:absolute;bottom:6px;left:5%;width:16px;height:56px;z-index:4;pointer-events:none;}
+.semaphore-mast{position:absolute;bottom:0;left:6px;width:3px;height:48px;background:#B8860B;border-radius:1px;}
+.semaphore-arm{position:absolute;top:6px;left:7px;width:26px;height:4px;transform-origin:left center;animation:semaphoreDrop 12s ease-in-out infinite;}
+@keyframes semaphoreDrop{0%,30%{transform:rotate(0deg);}35%,80%{transform:rotate(40deg);}85%,100%{transform:rotate(0deg);}}
+.semaphore-blade{position:absolute;top:0;left:0;width:26px;height:4px;background:#C83232;border-radius:1px;}
+.semaphore-spectacle{position:absolute;top:-2px;left:-5px;width:7px;height:9px;background:#D4A017;border-radius:2px;}
+.semaphore-lamp{position:absolute;top:8px;left:4px;width:7px;height:7px;border-radius:50%;background:#4ADE80;box-shadow:0 0 8px 2px rgba(74,222,128,0.8);animation:signalLampGlow 12s infinite;}
+@keyframes signalLampGlow{0%,30%{background:#EF4444;box-shadow:0 0 8px 2px rgba(239,68,68,0.8);}35%,80%{background:#4ADE80;box-shadow:0 0 8px 2px rgba(74,222,128,0.85);}85%,100%{background:#EF4444;box-shadow:0 0 8px 2px rgba(239,68,68,0.8);}}
+
+/* ─── THE ANIMATED MINIATURE STEAM TRAIN ("The Park Express") ─── */
+.mini-train-express{position:absolute;bottom:3px;left:-440px;width:380px;height:72px;z-index:4;pointer-events:none;animation:trainCruise 22s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;}
+@keyframes trainCruise{
+  0%{transform:translateX(0);}
+  100%{transform:translateX(calc(100vw + 520px));}
+}
+[dir="rtl"] .mini-train-express{left:auto;right:-440px;animation:trainCruiseRTL 22s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;}
+@keyframes trainCruiseRTL{
+  0%{transform:scaleX(-1) translateX(0);}
+  100%{transform:scaleX(-1) translateX(calc(-100vw - 520px));}
 }
 
-/* Railway Signal Junction Nodes */
-.junction-node{filter:drop-shadow(0 0 6px rgba(245,212,120,0.9));animation:beaconPulse 3s ease-in-out infinite alternate;}
-.node-1{animation-delay:0s;}
-.node-2{animation-delay:0.8s;}
-.node-3{animation-delay:1.6s;filter:drop-shadow(0 0 6px rgba(74,222,128,0.9));}
-.node-4{animation-delay:2.4s;}
+.mini-train-svg{width:100%;height:100%;filter:drop-shadow(0 6px 12px rgba(0,0,0,0.22));}
+.dark .mini-train-svg{filter:drop-shadow(0 6px 14px rgba(0,0,0,0.6));}
 
-@keyframes beaconPulse{
-  0%{r:4;opacity:0.55;transform-origin:center;}
-  50%{r:6.5;opacity:1;}
-  100%{r:4;opacity:0.55;}
+/* Spinning Wheels on Train */
+.spin-wheel{animation:trainWheelSpin 0.9s linear infinite;}
+@keyframes trainWheelSpin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+
+/* Locomotive Connecting Rod */
+.piston-side-rod{animation:pistonReciprocate 0.9s linear infinite;}
+@keyframes pistonReciprocate{0%,100%{transform:translate(0,0);}50%{transform:translate(-3px,-1.5px);}}
+
+/* Headlight Projection Glow */
+.headlight-beam-glow{opacity:0.65;animation:beamFlicker 3s infinite alternate;}
+.dark .headlight-beam-glow{opacity:0.95;}
+@keyframes beamFlicker{0%{opacity:0.6;}100%{opacity:0.9;}}
+
+/* ─── BILLOWING STEAM SMOKE PUFFS FROM LOCOMOTIVE ─── */
+.train-steam-emitter{position:absolute;top:2px;left:314px;width:24px;height:24px;pointer-events:none;}
+.steam-puff{position:absolute;border-radius:50%;background:radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.65) 55%, transparent 100%);filter:blur(2px) drop-shadow(0 2px 6px rgba(0,0,0,0.12));pointer-events:none;opacity:0;}
+.puff-1{width:22px;height:22px;animation:puffBillow 2.4s 0s infinite ease-out;}
+.puff-2{width:25px;height:25px;animation:puffBillow 2.4s 0.4s infinite ease-out;}
+.puff-3{width:20px;height:20px;animation:puffBillow 2.4s 0.8s infinite ease-out;}
+.puff-4{width:26px;height:26px;animation:puffBillow 2.4s 1.2s infinite ease-out;}
+.puff-5{width:24px;height:24px;animation:puffBillow 2.4s 1.6s infinite ease-out;}
+.puff-6{width:22px;height:22px;animation:puffBillow 2.4s 2.0s infinite ease-out;}
+
+@keyframes puffBillow{
+  0%{transform:translate(0,0) scale(0.3);opacity:0;}
+  15%{opacity:0.9;transform:translate(-10px,-10px) scale(0.8);}
+  60%{opacity:0.65;transform:translate(-45px,-35px) scale(1.8);}
+  100%{opacity:0;transform:translate(-90px,-65px) scale(2.8);}
 }
 
-/* Floating Steam Wisps */
-.steam-wisp{position:absolute;background:radial-gradient(ellipse at center,rgba(255,255,255,0.2) 0%,rgba(255,255,255,0.05) 50%,transparent 70%);border-radius:40% 60% 70% 30% / 40% 50% 60% 50%;filter:blur(22px);pointer-events:none;}
-.wisp-1{width:220px;height:120px;bottom:15%;left:12%;animation:wispFloat1 11s infinite ease-in-out;}
-.wisp-2{width:260px;height:140px;bottom:25%;left:42%;animation:wispFloat2 15s 2.5s infinite ease-in-out;}
-.wisp-3{width:180px;height:100px;bottom:10%;right:18%;animation:wispFloat1 13s 5s infinite ease-in-out;}
-.wisp-4{width:240px;height:130px;bottom:35%;right:30%;animation:wispFloat2 16s 7s infinite ease-in-out;}
+/* ─── SKY DRIFTING STEAM CLOUDS ─── */
+.hero-steam-atmosphere{position:absolute;inset:0;pointer-events:none;z-index:2;}
+.drift-cloud{position:absolute;border-radius:45% 55% 60% 40% / 40% 50% 50% 60%;filter:blur(24px);pointer-events:none;}
+.cloud-1{width:320px;height:160px;top:22%;left:10%;background:radial-gradient(ellipse at center,rgba(255,255,255,0.4) 0%,rgba(255,255,255,0.1) 50%,transparent 70%);animation:cloudDrift1 18s ease-in-out infinite alternate;}
+.cloud-2{width:360px;height:180px;top:40%;left:45%;background:radial-gradient(ellipse at center,rgba(255,255,255,0.35) 0%,rgba(212,160,23,0.08) 50%,transparent 70%);animation:cloudDrift2 22s 2s ease-in-out infinite alternate;}
+.cloud-3{width:280px;height:140px;top:15%;right:12%;background:radial-gradient(ellipse at center,rgba(255,255,255,0.3) 0%,transparent 70%);animation:cloudDrift1 20s 4s ease-in-out infinite alternate;}
+.dark .cloud-1,.dark .cloud-2,.dark .cloud-3{background:radial-gradient(ellipse at center,rgba(255,255,255,0.14) 0%,transparent 70%);}
 
-@keyframes wispFloat1{
-  0%{transform:translateY(0) rotate(0deg) scale(0.8);opacity:0;}
-  25%{opacity:0.55;transform:translateY(-60px) rotate(10deg) scale(1.1);}
-  70%{opacity:0.3;transform:translateY(-180px) rotate(25deg) scale(1.5);}
-  100%{opacity:0;transform:translateY(-280px) rotate(40deg) scale(2);}
-}
-@keyframes wispFloat2{
-  0%{transform:translateY(0) rotate(0deg) scale(0.7);opacity:0;}
-  30%{opacity:0.5;transform:translateY(-70px) rotate(-12deg) scale(1.2);}
-  75%{opacity:0.25;transform:translateY(-200px) rotate(-30deg) scale(1.6);}
-  100%{opacity:0;transform:translateY(-300px) rotate(-50deg) scale(2.2);}
-}
+@keyframes cloudDrift1{0%{transform:translate(0,0) scale(1);}50%{transform:translate(35px,-20px) scale(1.15);}100%{transform:translate(-25px,25px) scale(0.92);}}
+@keyframes cloudDrift2{0%{transform:translate(0,0) scale(1);}50%{transform:translate(-40px,25px) scale(1.18);}100%{transform:translate(30px,-15px) scale(0.88);}}
 
-/* Soft Golden Locomotive Stardust */
-.gold-sparkle{position:absolute;border-radius:50%;background:#F5D478;box-shadow:0 0 10px 2px rgba(245,212,120,0.85);pointer-events:none;}
-.sp-1{width:4px;height:4px;bottom:20%;left:20%;animation:stardustRise 7s infinite ease-out;}
-.sp-2{width:5.5px;height:5.5px;bottom:30%;left:48%;animation:stardustRise 9s 1.5s infinite ease-out;}
-.sp-3{width:3.5px;height:3.5px;bottom:15%;right:28%;animation:stardustRise 6.5s 3s infinite ease-out;}
-.sp-4{width:5px;height:5px;bottom:28%;right:10%;animation:stardustRise 8s 0.8s infinite ease-out;}
-.sp-5{width:4px;height:4px;bottom:38%;left:8%;animation:stardustRise 7.5s 4.5s infinite ease-out;}
-.sp-6{width:4.5px;height:4.5px;bottom:18%;left:65%;animation:stardustRise 9.5s 2.2s infinite ease-out;}
-.sp-7{width:3px;height:3px;bottom:32%;right:42%;animation:stardustRise 6s 5.2s infinite ease-out;}
+/* ─── GOLDEN LOCOMOTIVE EMBERS & FIREFLIES ─── */
+.hero-sparkle-field{position:absolute;inset:0;pointer-events:none;z-index:2;}
+.ember-spark{position:absolute;border-radius:50%;background:#F5D478;box-shadow:0 0 10px 2.5px rgba(245,212,120,0.85);pointer-events:none;}
+.eb-1{width:4.5px;height:4.5px;bottom:22%;left:18%;animation:emberRise 7.5s infinite ease-out;}
+.eb-2{width:5.5px;height:5.5px;bottom:28%;left:42%;animation:emberRise 9.5s 1.2s infinite ease-out;}
+.eb-3{width:4px;height:4px;bottom:18%;left:65%;animation:emberRise 8s 2.4s infinite ease-out;}
+.eb-4{width:6px;height:6px;bottom:32%;right:18%;animation:emberRise 10s 0.8s infinite ease-out;}
+.eb-5{width:4px;height:4px;bottom:36%;left:28%;animation:emberRise 8.5s 4s infinite ease-out;}
+.eb-6{width:5px;height:5px;bottom:20%;right:34%;animation:emberRise 9s 3s infinite ease-out;}
+.eb-7{width:3.5px;height:3.5px;bottom:26%;left:8%;animation:emberRise 7s 5s infinite ease-out;}
+.eb-8{width:5px;height:5px;bottom:34%;right:8%;animation:emberRise 11s 1.8s infinite ease-out;}
 
-@keyframes stardustRise{
-  0%{transform:translate(0,0) scale(0);opacity:0;}
-  20%{opacity:1;transform:translate(15px,-45px) scale(1.2);}
-  60%{opacity:0.8;transform:translate(-20px,-140px) scale(1);}
-  100%{opacity:0;transform:translate(30px,-240px) scale(0.2);}
+@keyframes emberRise{
+  0%{transform:translate(0,0) scale(0.3);opacity:0;}
+  20%{opacity:1;transform:translate(18px,-50px) scale(1.2);}
+  60%{opacity:0.85;transform:translate(-24px,-150px) scale(1);}
+  100%{opacity:0;transform:translate(32px,-260px) scale(0.2);}
 }
 .hero2-slides-track{position:relative;width:100%;min-height:500px;flex:1;display:grid;grid-template-columns:1fr;align-items:center;}
-.hero2-slide{grid-area:1/1;width:100%;height:100%;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.7s cubic-bezier(0.4,0,0.2,1), visibility 0.7s ease;z-index:1;display:flex;align-items:center;}
+.hero2-slide{grid-area:1/1;width:100%;height:100%;opacity:0;visibility:hidden;pointer-events:none;transition:opacity 0.7s cubic-bezier(0.4,0,0.2,1), visibility 0.7s ease;z-index:1;display:flex;align-items:center;padding-bottom:3.5rem;}
 .hero2-slide.active{opacity:1;visibility:visible;pointer-events:auto;z-index:2;}
 .hero2-slide-inner{display:grid;grid-template-columns:1.05fr 1.2fr;width:100%;height:100%;align-items:center;}
 .hero2-slide.active .hero2-content{animation:fadeInUp 0.65s cubic-bezier(0.16,1,0.3,1) both;}
 .hero2-slide.active .hero2-collage-item{animation:fadeIn 0.75s ease both;}
-.hero2-left{background:transparent;display:flex;align-items:center;padding:3.5rem 3rem 3.5rem 4rem;position:relative;z-index:2;overflow:hidden;}
+.hero2-left{background:transparent;display:flex;align-items:center;padding:3rem 3rem 4rem 4rem;position:relative;z-index:2;overflow:hidden;}
 .hero2-content{position:relative;z-index:2;color:var(--text-body);}
 .hero2-title{font-family:var(--font-heading);font-size:clamp(2.35rem,4vw,3.25rem);font-weight:700;color:var(--text-heading);line-height:1.15;margin-bottom:1.15rem;}
 .hero2-title em{font-style:normal;color:var(--secondary);filter:drop-shadow(0 1px 2px rgba(212,160,23,0.25));}
@@ -505,8 +646,8 @@ strong,b{font-weight:600;}
 .dark .hero2-actions .btn-outline-light{color:#fff;border-color:rgba(255,255,255,0.7);}
 .dark .hero2-actions .btn-outline-light:hover{background:rgba(255,255,255,0.15);border-color:#fff;}
 .hero2-right{position:relative;overflow:hidden;z-index:2;display:flex;align-items:center;justify-content:center;}
-.hero2-collage-wrap{background:transparent;padding:2rem 3.5rem 2rem 1rem;display:flex;align-items:center;justify-content:center;width:100%;}
-.hero2-collage-grid{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:1fr 1fr;gap:1.1rem;width:100%;height:470px;min-height:440px;max-height:490px;}
+.hero2-collage-wrap{background:transparent;padding:1.5rem 3.5rem 3.5rem 1rem;display:flex;align-items:center;justify-content:center;width:100%;}
+.hero2-collage-grid{display:grid;grid-template-columns:1.2fr 1fr;grid-template-rows:1fr 1fr;gap:1.1rem;width:100%;height:430px;min-height:390px;max-height:450px;}
 .hero2-collage-item{position:relative;border-radius:var(--radius-xl);overflow:hidden;box-shadow:0 14px 36px rgba(0,0,0,0.15);border:2px solid rgba(44,95,46,0.15);transition:var(--transition-smooth);background:#245028;}
 .dark .hero2-collage-item{box-shadow:0 14px 36px rgba(0,0,0,0.45);border-color:rgba(255,255,255,0.22);}
 .hero2-collage-item:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 24px 55px rgba(0,0,0,0.25);border-color:var(--secondary);z-index:5;}
@@ -587,6 +728,8 @@ strong,b{font-weight:600;}
 .seasonal-grid{grid-template-columns:repeat(2,1fr);}
 .zigzag-row{gap:2.5rem;}
 .grid-4{grid-template-columns:repeat(2,1fr);}
+.hours-feature-layout{grid-template-columns:1fr;}
+.pricing-cards-grid{grid-template-columns:repeat(2,1fr);}
 }
 @media(max-width:768px){
 :root{--gutter-x:1rem;}
@@ -606,6 +749,7 @@ strong,b{font-weight:600;}
 .gallery-mosaic{grid-template-columns:1fr 1fr;grid-template-rows:repeat(3,180px);gap:0.75rem;}
 .footer-grid{grid-template-columns:repeat(2,1fr);gap:2.5rem 2rem;text-align:left;}
 .hours-ticket-grid{grid-template-columns:1fr;}
+.ticket-bottom-bar{grid-template-columns:1fr;}
 .party-packages-grid{grid-template-columns:1fr;}
 .benefits-grid{grid-template-columns:1fr;}
 .contact-layout{grid-template-columns:1fr;}
@@ -625,9 +769,13 @@ strong,b{font-weight:600;}
 .visit-hero,.parties-hero,.school-hero,.contact-hero{padding:3.5rem 0 3rem;}
 .cta-banner{padding:3.5rem 0;}
 .cta-banner-actions{flex-direction:column;align-items:center;}
-.hero-scroll-indicator{display:none;}
+.scenic-landscape-layer{height:60px;}
+.mini-train-express{width:260px;height:50px;bottom:2px;}
+.hills-silhouette-svg{height:40px;bottom:10px;}
+.hero2-slide{padding-bottom:2.5rem;}
 }
 @media(max-width:575px){
+.pricing-cards-grid{grid-template-columns:1fr;}
 .footer{padding:3.5rem 0 2rem;}
 .footer-grid{grid-template-columns:1fr;gap:2.25rem;text-align:left;margin-bottom:2.5rem;}
 .footer-bottom{flex-direction:column;align-items:flex-start;gap:1rem;}
