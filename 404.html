@@ -3,31 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Page Not Found — Miniature Train Ride Park</title>
-<meta name="description" content="Oops! The page you were looking for has gone off the rails. Return to the Miniature Train Ride Park homepage.">
+<title>404 — Page Not Found | TrainPark</title>
+<meta name="description" content="Oops! This train has gone off the rails. The page you're looking for doesn't exist or has moved.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<div id="navbar-container"></div>
-<div class="error-page">
-  <div aria-hidden="true" style="position:absolute;inset:0;background-image:url('assets/images/park_landscape_wide_1791302713672.jpg');background-size:cover;background-position:center;opacity:0.05;"></div>
-  <div class="error-content">
-    <span class="error-train" role="img" aria-label="Train emoji">🚂</span>
-    <div class="error-code" aria-label="Error 404">404</div>
-    <h1 class="error-title">This Train Has Gone Off the Rails!</h1>
-    <p class="error-desc">Looks like the page you were looking for has taken an unexpected detour. Don't worry — let's get you back on track.</p>
-    <div class="error-actions">
-      <a href="index.html" class="btn btn-primary btn-lg" id="errorHomeBtn">Back to Home</a>
-      <a href="contact.html" class="btn btn-outline btn-lg" id="errorContactBtn">Contact Us</a>
+<body class="fullscreen-page">
+
+<!-- Top Bar -->
+<div class="auth-topbar">
+  <a href="index.html" class="nav-logo" aria-label="TrainPark Home" style="display:flex;align-items:center;gap:0.625rem;text-decoration:none;">
+    <img src="logo.svg" alt="TrainPark Logo" width="38" height="38" style="width:38px;height:38px;object-fit:contain;display:block;">
+    <div class="nav-logo-text">
+      <span class="brand-top" style="font-family:var(--font-heading);font-weight:700;font-size:1.05rem;color:var(--primary);">TrainPark</span>
+      <span class="brand-bottom" style="font-size:0.6875rem;color:var(--secondary);letter-spacing:0.08em;text-transform:uppercase;">Ride &amp; Play</span>
+    </div>
+  </a>
+  <div style="display:flex;gap:0.5rem;align-items:center;">
+    <button onclick="toggleDir()" class="auth-toggle-btn" title="Toggle Direction" aria-label="Toggle text direction">
+      <span class="dir-label" style="font-size:0.625rem;font-weight:700;">LTR</span>
+    </button>
+    <button class="auth-toggle-btn auth-theme-toggle" id="darkToggle" title="Toggle Theme" aria-label="Toggle dark mode">
+      <svg id="iconSun" class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg id="iconMoon" class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="fullscreen-content">
+  <div style="position:relative;max-width:540px;width:100%;margin:0 auto;">
+    <div class="error-illustration">
+      <!-- Spinning train wheel / gear behind -->
+      <svg class="train-spin" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="60" cy="60" r="50" stroke="var(--primary)" stroke-width="6" stroke-dasharray="12 6" opacity="0.4"/>
+        <circle cx="60" cy="60" r="28" stroke="var(--secondary)" stroke-width="4" opacity="0.5"/>
+        <circle cx="60" cy="60" r="10" fill="var(--primary)" opacity="0.6"/>
+        <line x1="60" y1="10" x2="60" y2="110" stroke="var(--primary)" stroke-width="3" opacity="0.3"/>
+        <line x1="10" y1="60" x2="110" y2="60" stroke="var(--primary)" stroke-width="3" opacity="0.3"/>
+        <line x1="25" y1="25" x2="95" y2="95" stroke="var(--primary)" stroke-width="3" opacity="0.3"/>
+        <line x1="25" y1="95" x2="95" y2="25" stroke="var(--primary)" stroke-width="3" opacity="0.3"/>
+      </svg>
+      <div class="error-code">404</div>
+    </div>
+    <div class="error-subtitle">This Train Has Gone Off the Rails!</div>
+    <p class="error-desc">Looks like the page you were looking for took an unexpected detour. The track seems to have ended or the page was moved.</p>
+    <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;">
+      <a href="index.html" class="btn btn-primary btn-lg" id="errorHomeBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Back to Home
+      </a>
+      <a href="contact.html" class="btn btn-secondary btn-lg" id="errorContactBtn">Contact Support</a>
     </div>
   </div>
 </div>
-<div id="footer-container"></div>
+
 <script src="components.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  initComponents('');
+  initAuthPage();
 });
 </script>
 </body>

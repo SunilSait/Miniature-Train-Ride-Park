@@ -12,26 +12,85 @@
 <div id="navbar-container"></div>
 
 <!-- HERO -->
-<section class="hero" aria-label="Hero section">
-  <div class="hero-bg" role="img" aria-label="Miniature train ride in lush green park"></div>
-  <div class="hero-overlay"></div>
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-badge anim-fade">
-        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-        Open Daily · Rides Every Hour
-      </div>
-      <h1 class="hero-title anim-fade-up delay-1">All Aboard for <span>Family Adventures</span></h1>
-      <p class="hero-desc anim-fade-up delay-2">Step into a world of nostalgia and wonder at our miniature train ride park. Whether you're 2 or 92, every ride is a memory waiting to be made.</p>
-      <div class="hero-actions anim-fade-up delay-3">
-        <a href="visit.html" class="btn btn-secondary btn-lg" id="heroPlanVisitBtn">Plan Your Visit</a>
-        <a href="home2.html" class="btn btn-outline-light btn-lg" id="heroExploreBtn">Explore the Park</a>
+<section class="hero" aria-label="Hero Carousel" id="heroCarousel">
+  <!-- Slides Wrapper -->
+  <div class="hero-slides">
+    <!-- Slide 1 -->
+    <div class="hero-slide active" data-slide="0">
+      <div class="hero-bg" style="background-image:url('assets/images/hero_main_1791302589255.jpg');" role="img" aria-label="Miniature train ride in lush green park"></div>
+      <div class="hero-overlay"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+            Open Daily · Rides Every Hour
+          </div>
+          <h1 class="hero-title">All Aboard for <span>Family Adventures</span></h1>
+          <p class="hero-desc">Step into a world of nostalgia and wonder at our miniature train ride park. Whether you're 2 or 92, every ride is a memory waiting to be made.</p>
+          <div class="hero-actions">
+            <a href="visit.html" class="btn btn-secondary btn-lg" id="heroPlanVisitBtn">Plan Your Visit</a>
+            <a href="home2.html" class="btn btn-outline-light btn-lg" id="heroExploreBtn">Explore the Park</a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="hero-scroll-indicator" aria-hidden="true">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-    <span>Scroll</span>
+
+    <!-- Slide 2 -->
+    <div class="hero-slide" data-slide="1">
+      <div class="hero-bg" style="background-image:url('assets/images/park_landscape_wide_1791302713672.jpg');" role="img" aria-label="Scenic landscape of miniature railway park"></div>
+      <div class="hero-overlay"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+            Heritage Fleet · 12km Scenic Route
+          </div>
+          <h2 class="hero-title">Experience Authentic <span>Vintage Locomotives</span></h2>
+          <p class="hero-desc">Journey through handcrafted bridges, flower-lined tunnels, and open countryside on Britain's most cherished miniature steam railway.</p>
+          <div class="hero-actions">
+            <a href="visit.html" class="btn btn-secondary btn-lg">Book Train Tickets</a>
+            <a href="home2.html" class="btn btn-outline-light btn-lg">Discover Our Fleet</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="hero-slide" data-slide="2">
+      <div class="hero-bg" style="background-image:url('assets/images/birthday_party_train_1791302629663.jpg');" role="img" aria-label="Children and families celebrating birthday at train park"></div>
+      <div class="hero-overlay"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+            Party Packages · Unforgettable Celebrations
+          </div>
+          <h2 class="hero-title">Celebrate Special <span>Moments Together</span></h2>
+          <p class="hero-desc">Private carriage hire, reserved picnic lawns, and magical train celebrations for birthdays, family reunions, and school adventures.</p>
+          <div class="hero-actions">
+            <a href="birthday.html" class="btn btn-secondary btn-lg">Birthday Packages</a>
+            <a href="school.html" class="btn btn-outline-light btn-lg">School &amp; Groups</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel Navigation Controls -->
+    <div class="hero-nav-arrows">
+      <button class="hero-nav-arrow prev" id="heroPrevBtn" aria-label="Previous Slide">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="hero-nav-arrow next" id="heroNextBtn" aria-label="Next Slide">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+    <!-- Carousel Progress Dots -->
+    <div class="hero-dots" role="tablist" aria-label="Carousel Slides">
+      <button class="hero-dot active" data-index="0" aria-label="Slide 1" role="tab" aria-selected="true"><span class="dot-progress"></span></button>
+      <button class="hero-dot" data-index="1" aria-label="Slide 2" role="tab" aria-selected="false"><span class="dot-progress"></span></button>
+      <button class="hero-dot" data-index="2" aria-label="Slide 3" role="tab" aria-selected="false"><span class="dot-progress"></span></button>
+    </div>
   </div>
   <div class="hero-stats-bar" role="complementary" aria-label="Park statistics">
     <div class="hero-stats-inner">
@@ -128,7 +187,7 @@
       <p class="section-desc">From steam locomotives to garden tunnels — the park is full of surprises at every turn.</p>
     </div>
     <div class="bento-grid">
-      <div class="bento-cell bento-cell-wide bento-cell-tall">
+      <div class="bento-cell">
         <img src="assets/images/park_landscape_wide_1791302713672.jpg" alt="Aerial view of full train park landscape" class="bento-img" loading="lazy">
         <div class="bento-overlay-content">
           <span class="bento-tag">The Park</span>
@@ -141,6 +200,7 @@
         <div class="bento-overlay-content">
           <span class="bento-tag">Our Fleet</span>
           <h3 class="bento-title">Vintage Locomotives</h3>
+          <p class="bento-desc">Handcrafted heritage steam and diesel miniature engines.</p>
         </div>
       </div>
       <div class="bento-cell">
@@ -148,9 +208,10 @@
         <div class="bento-overlay-content">
           <span class="bento-tag">Feature</span>
           <h3 class="bento-title">The Garden Tunnel</h3>
+          <p class="bento-desc">Pass through colorful floral blooms and charming tunnels.</p>
         </div>
       </div>
-      <div class="bento-cell bento-cell-wide">
+      <div class="bento-cell">
         <img src="assets/images/picnic_area_park_1791302770456.jpg" alt="Families relaxing in park picnic area" class="bento-img" loading="lazy">
         <div class="bento-overlay-content">
           <span class="bento-tag">Facilities</span>
@@ -177,7 +238,6 @@
         <div class="section-label">Your Visit</div>
         <div class="track-divider" style="justify-content:flex-start;margin-bottom:1rem"><div class="track-dot"></div></div>
         <h2 class="section-title" id="howItWorksHeading">Your Perfect Day at the Park</h2>
-        <p style="color:var(--text-muted);margin:1rem 0 2rem;">Visiting is simple, fun, and full of surprises. Here's what a typical adventure looks like:</p>
         <div class="journey-steps">
           <div class="journey-step anim-fade-up delay-1">
             <div class="step-num">1</div>
@@ -293,6 +353,12 @@
       </div>
       <div class="gallery-item" role="listitem">
         <img src="assets/images/birthday_party_train_1791302629663.jpg" alt="Children celebrating birthday at train park" loading="lazy">
+        <div class="gallery-overlay" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </div>
+      </div>
+      <div class="gallery-item" role="listitem">
+        <img src="assets/images/family_train_ride_1791302616029.jpg" alt="Family enjoying the scenic miniature train ride" loading="lazy">
         <div class="gallery-overlay" aria-hidden="true">
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
         </div>

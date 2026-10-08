@@ -157,10 +157,27 @@
         </div>
       </div>
       <div>
-        <div class="map-placeholder" role="img" aria-label="Map placeholder — location map would appear here">
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--primary);opacity:0.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          <p style="font-weight:600;color:var(--text-heading)">Interactive Map</p>
-          <p style="font-size:0.875rem;">1 Railway Lane, Greenfield Park</p>
+        <div class="live-map-card" style="margin-bottom:0;">
+          <div class="live-map-header">
+            <div style="display:flex;align-items:center;gap:0.625rem;">
+              <div class="live-map-pulse-dot" title="Live Location"></div>
+              <span style="font-weight:600;font-size:0.9375rem;color:var(--text-heading);">Interactive Park Map</span>
+            </div>
+            <a href="https://maps.google.com/?q=52.48,-1.89" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" style="font-size:0.75rem;padding:0.35rem 0.75rem;">
+              Directions
+            </a>
+          </div>
+          <div class="live-map-container" style="height:300px;">
+            <iframe 
+              title="TrainPark Map"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-1.925%2C52.465%2C-1.855%2C52.495&amp;layer=mapnik&amp;marker=52.4800%2C-1.8900" 
+              width="100%" 
+              height="300" 
+              style="border:0;display:block;width:100%;height:300px;" 
+              loading="lazy"
+              allowfullscreen>
+            </iframe>
+          </div>
         </div>
       </div>
     </div>

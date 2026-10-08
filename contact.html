@@ -36,21 +36,30 @@
             <div class="contact-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.07 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6 6l.38-.38a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 17z"/></svg></div>
             <div>
               <div class="contact-info-title">Phone</div>
-              <div class="contact-info-detail">+44 (0)1234 567 890<br><span style="font-size:0.8125rem">Mon–Fri 09:00–17:00</span></div>
+              <div class="contact-info-detail">+44 (0)1234 567 890</div>
             </div>
           </div>
           <div class="contact-info-card">
             <div class="contact-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
             <div>
               <div class="contact-info-title">Email</div>
-              <div class="contact-info-detail"><a href="mailto:hello@trainpark.co.uk" style="color:var(--primary)">hello@trainpark.co.uk</a><br><a href="mailto:parties@trainpark.co.uk" style="color:var(--primary)">parties@trainpark.co.uk</a></div>
+              <div class="contact-info-detail"><a href="mailto:hello@trainpark.co.uk">hello@trainpark.co.uk</a><br><a href="mailto:parties@trainpark.co.uk">parties@trainpark.co.uk</a></div>
             </div>
           </div>
           <div class="contact-info-card">
             <div class="contact-icon-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
             <div>
               <div class="contact-info-title">Opening Hours</div>
-              <div class="contact-info-detail">Tue–Fri: 10:00 – 17:00<br>Sat: 09:00 – 18:00 &nbsp;|&nbsp; Sun: 10:00 – 17:00</div>
+              <div class="contact-info-detail">Tue–Fri: 10:00 – 17:00</div>
+            </div>
+          </div>
+          <div class="contact-feature-img-card">
+            <img src="assets/images/train_station_platform_1791302656115.jpg" alt="Miniature train station platform and welcome area" class="contact-feature-img" loading="lazy">
+            <div class="contact-feature-overlay">
+              <span class="contact-feature-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                Main Station &amp; Welcome Center
+              </span>
             </div>
           </div>
         </div>
@@ -97,6 +106,54 @@
           </div>
           <button type="submit" class="btn btn-primary w-full" id="contactSubmitBtn">Send Message</button>
         </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Live Interactive Map Section -->
+<section class="section-sm" style="padding-top:0;" aria-label="Interactive Map Location">
+  <div class="container">
+    <div class="live-map-card">
+      <div class="live-map-header">
+        <div style="display:flex;align-items:center;gap:0.75rem;">
+          <div class="live-map-pulse-dot" title="Live Park Location Active"></div>
+          <div>
+            <h3 style="font-size:1.125rem;font-weight:600;margin:0;color:var(--text-heading);font-family:var(--font-heading);">TrainPark Live Location &amp; Directions</h3>
+            <p style="font-size:0.8125rem;color:var(--text-muted);margin:0;">1 Railway Lane, Greenfield Park, Countryside, GF1 2TR</p>
+          </div>
+        </div>
+        <div style="display:flex;gap:0.5rem;align-items:center;">
+          <a href="https://maps.google.com/?q=52.48,-1.89" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" style="font-size:0.75rem;padding:0.4rem 0.85rem;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Get Directions
+          </a>
+        </div>
+      </div>
+      <div class="live-map-container">
+        <iframe 
+          title="TrainPark Live Location Map"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-1.925%2C52.465%2C-1.855%2C52.495&amp;layer=mapnik&amp;marker=52.4800%2C-1.8900" 
+          width="100%" 
+          height="380" 
+          style="border:0;display:block;width:100%;height:380px;" 
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="live-map-footer">
+        <div class="live-map-info-pill">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Free Visitor Parking on-site</span>
+        </div>
+        <div class="live-map-info-pill">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+          <span>Main Entrance &amp; Ticket Depot</span>
+        </div>
+        <div class="live-map-info-pill">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          <span>Wheelchair &amp; Stroller Accessible</span>
+        </div>
       </div>
     </div>
   </div>

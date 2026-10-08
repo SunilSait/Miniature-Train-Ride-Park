@@ -11,25 +11,131 @@
 <body>
 <div id="navbar-container"></div>
 
-<!-- HERO SPLIT -->
-<section class="hero2-split" aria-label="Park experience hero">
-  <div class="hero2-left">
-    <div class="hero2-left-pattern" aria-hidden="true"
-      style="background-image:repeating-linear-gradient(90deg,rgba(255,255,255,0.05) 0,rgba(255,255,255,0.05) 1px,transparent 1px,transparent 60px),repeating-linear-gradient(0deg,rgba(255,255,255,0.05) 0,rgba(255,255,255,0.05) 1px,transparent 1px,transparent 60px)">
+<!-- HERO 2 SPLIT CAROUSEL -->
+<section class="hero2-split-carousel" id="hero2Carousel" aria-label="Park experience showcase">
+  <div class="hero2-slides-track">
+    <!-- SLIDE 1: The Full Experience -->
+    <div class="hero2-slide active" data-slide="0">
+      <div class="hero2-slide-inner">
+        <div class="hero2-left">
+          <div class="hero2-content">
+            <div class="section-label" style="background:rgba(212,160,23,0.2);color:#F5D478;border-color:rgba(212,160,23,0.4)">The Full Experience</div>
+            <h1 class="hero2-title">Where Every <em>Ride</em> Tells a Story</h1>
+            <p class="hero2-desc">Explore our scenic park, discover the history of miniature railways, and enjoy a day that the whole family will talk about for years to come.</p>
+            <div class="hero2-actions">
+              <a href="visit.html" class="btn btn-secondary btn-lg" id="home2PlanBtn">Plan Your Visit</a>
+              <a href="contact.html" class="btn btn-outline-light btn-lg" id="home2ContactBtn">Contact Us</a>
+            </div>
+          </div>
+        </div>
+        <div class="hero2-right hero2-collage-wrap">
+          <div class="hero2-collage-grid">
+            <div class="hero2-collage-item collage-main">
+              <img src="assets/images/home2_hero_1791302785446.jpg" alt="Sunset scenic miniature train ride">
+              <div class="collage-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+                Sunset Express
+              </div>
+            </div>
+            <div class="hero2-collage-item collage-sub-1">
+              <img src="assets/images/steam_locomotive_closeup_1791302755118.jpg" alt="Heritage steam locomotive up close">
+            </div>
+            <div class="hero2-collage-item collage-sub-2">
+              <img src="assets/images/train_tunnel_garden_1791302681579.jpg" alt="Train entering lush garden tunnel">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="hero2-content">
-      <div class="section-label" style="background:rgba(212,160,23,0.2);color:#F5D478;border-color:rgba(212,160,23,0.4)">The Full Experience</div>
-      <h1 class="hero2-title">Where Every <em>Ride</em> Tells a Story</h1>
-      <p class="hero2-desc">Explore our scenic park, discover the history of miniature railways, and enjoy a day that the whole family will talk about for years to come.</p>
-      <div class="hero2-actions">
-        <a href="visit.html" class="btn btn-secondary btn-lg" id="home2PlanBtn">Plan Your Visit</a>
-        <a href="contact.html" class="btn btn-outline-light btn-lg" id="home2ContactBtn">Contact Us</a>
+
+    <!-- SLIDE 2: Heritage & Scenic Route -->
+    <div class="hero2-slide" data-slide="1">
+      <div class="hero2-slide-inner">
+        <div class="hero2-left">
+          <div class="hero2-content">
+            <div class="section-label" style="background:rgba(212,160,23,0.2);color:#F5D478;border-color:rgba(212,160,23,0.4)">Vintage Railway Heritage</div>
+            <h2 class="hero2-title">Authentic Steam &amp; <em>Scenic</em> Trails</h2>
+            <p class="hero2-desc">Experience 12km of lovingly maintained tracks winding through vibrant floral tunnels, cast-iron heritage bridges, and lush meadow views.</p>
+            <div class="hero2-actions">
+              <a href="visit.html" class="btn btn-secondary btn-lg">View Ticket Prices</a>
+              <a href="#featuresHeading" class="btn btn-outline-light btn-lg">Explore Route</a>
+            </div>
+          </div>
+        </div>
+        <div class="hero2-right hero2-collage-wrap">
+          <div class="hero2-collage-grid">
+            <div class="hero2-collage-item collage-main">
+              <img src="assets/images/train_station_platform_1791302656115.jpg" alt="Vintage platform and passenger boarding">
+              <div class="collage-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+                Heritage Station
+              </div>
+            </div>
+            <div class="hero2-collage-item collage-sub-1">
+              <img src="assets/images/park_landscape_wide_1791302713672.jpg" alt="Meadow route panorama">
+            </div>
+            <div class="hero2-collage-item collage-sub-2">
+              <img src="assets/images/ticket_booth_vintage_1791302728803.jpg" alt="Restored vintage ticket booth">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: Family Magic -->
+    <div class="hero2-slide" data-slide="2">
+      <div class="hero2-slide-inner">
+        <div class="hero2-left">
+          <div class="hero2-content">
+            <div class="section-label" style="background:rgba(212,160,23,0.2);color:#F5D478;border-color:rgba(212,160,23,0.4)">Family Magic &amp; Memories</div>
+            <h2 class="hero2-title">Four Generations of <em>Joy</em> &amp; Wonder</h2>
+            <p class="hero2-desc">From toddler first train journeys to grandparents reliving nostalgic childhood smiles, our park brings all ages together in celebrated joy.</p>
+            <div class="hero2-actions">
+              <a href="birthday.html" class="btn btn-secondary btn-lg">Birthday Packages</a>
+              <a href="school.html" class="btn btn-outline-light btn-lg">School Groups</a>
+            </div>
+          </div>
+        </div>
+        <div class="hero2-right hero2-collage-wrap">
+          <div class="hero2-collage-grid">
+            <div class="hero2-collage-item collage-main">
+              <img src="assets/images/family_train_ride_1791302616029.jpg" alt="Happy family enjoying scenic ride">
+              <div class="collage-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+                Family Adventures
+              </div>
+            </div>
+            <div class="hero2-collage-item collage-sub-1">
+              <img src="assets/images/grandparents_children_train_1791302695388.jpg" alt="Generations enjoying train ride">
+            </div>
+            <div class="hero2-collage-item collage-sub-2">
+              <img src="assets/images/birthday_party_train_1791302629663.jpg" alt="Birthday celebration at train park">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="hero2-right">
-    <img src="assets/images/home2_hero_1791302785446.jpg" alt="Scenic miniature train ride through lush greenery" class="hero2-img">
-    <div class="hero2-img-overlay" aria-hidden="true"></div>
+
+  <!-- CAROUSEL NAV: PREV / NEXT & 5-SEC PROGRESS DOTS -->
+  <div class="hero2-carousel-nav" aria-label="Hero carousel navigation">
+    <button class="hero2-nav-btn prev" id="hero2PrevBtn" aria-label="Previous slide">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+    <div class="hero2-dots" role="tablist">
+      <button class="hero2-dot active" data-index="0" role="tab" aria-selected="true" aria-label="Slide 1">
+        <span class="hero2-dot-progress"></span>
+      </button>
+      <button class="hero2-dot" data-index="1" role="tab" aria-selected="false" aria-label="Slide 2">
+        <span class="hero2-dot-progress"></span>
+      </button>
+      <button class="hero2-dot" data-index="2" role="tab" aria-selected="false" aria-label="Slide 3">
+        <span class="hero2-dot-progress"></span>
+      </button>
+    </div>
+    <button class="hero2-nav-btn next" id="hero2NextBtn" aria-label="Next slide">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
   </div>
 </section>
 
