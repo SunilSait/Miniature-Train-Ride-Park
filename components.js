@@ -859,9 +859,11 @@ function initFaqAccordion() {
 
   faqItems.forEach(item => {
     const questionBtn = item.querySelector('.faq-question');
-    if (!questionBtn) return;
+    if (!questionBtn || questionBtn.dataset.faqBound === 'true') return;
+    questionBtn.dataset.faqBound = 'true';
 
-    questionBtn.addEventListener('click', () => {
+    questionBtn.addEventListener('click', (e) => {
+      e.preventDefault();
       const isAlreadyActive = item.classList.contains('active');
 
       // Close all items in the accordion
@@ -871,7 +873,8 @@ function initFaqAccordion() {
         if (btn) btn.setAttribute('aria-expanded', 'false');
       });
 
-      // If clicked item wasn't already open, open it
+      // If clicked item wasn't already open, open it.
+      // If it WAS already open, it remains closed.
       if (!isAlreadyActive) {
         item.classList.add('active');
         questionBtn.setAttribute('aria-expanded', 'true');
