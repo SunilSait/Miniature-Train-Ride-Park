@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Book Train Ride Tickets | Miniature Train Ride Park</title>
+<meta name="description" content="Book your miniature train ride tickets online. Fast, simple checkout with instant e-tickets. Unlimited all-day rides, museum entry, and free parking included.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Header (Injected by components.js) -->
+<div id="navbar-container"></div>
+
+<!-- HERO BANNER -->
+<section class="booking-hero" aria-labelledby="bookingHeading">
+  <div class="container">
+    <div class="booking-hero-content anim-fade-up">
+      <div class="section-label">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg>
+        Official Online Ticket Desk
+      </div>
+      <h1 class="booking-hero-title" id="bookingHeading">Book Your <span>Train Ride Tickets</span></h1>
+      <p class="booking-hero-desc">Fast, simple booking in 4 easy steps. Instant digital boarding passes delivered to your email with zero booking fees and no account required.</p>
+      
+      <!-- Trust Strip -->
+      <div class="booking-trust-strip">
+        <div class="trust-pill">
+          <i class="fa-solid fa-check trust-check"></i>
+          <span>All-Day Unlimited Rides</span>
+        </div>
+        <div class="trust-pill">
+          <i class="fa-solid fa-check trust-check"></i>
+          <span>Under 3s Travel Free</span>
+        </div>
+        <div class="trust-pill">
+          <i class="fa-solid fa-check trust-check"></i>
+          <span>Instant Mobile E-Ticket</span>
+        </div>
+        <div class="trust-pill">
+          <i class="fa-solid fa-check trust-check"></i>
+          <span>Free Date Rescheduling</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN BOOKING EXPERIENCE -->
+<section class="section section-alt" style="padding-top:2.5rem;">
+  <div class="container">
+    <div class="booking-layout">
+      
+      <!-- LEFT: Booking Form Steps -->
+      <div class="booking-form-col">
+        <form id="trainBookingForm" onsubmit="handleBookingSubmit(event)" novalidate>
+          
+          <!-- STEP 1: Date & Time Window -->
+          <div class="booking-card anim-fade-up">
+            <div class="booking-step-head">
+              <span class="step-num">1</span>
+              <div>
+                <h2 class="step-title">Choose Visit Date &amp; Arrival Window</h2>
+                <p class="step-sub">Select when you would like to visit. Tickets are valid all day from your arrival window.</p>
+              </div>
+            </div>
+
+            <!-- Quick Date Chips -->
+            <label class="form-label" style="margin-bottom:0.5rem;">Select Date</label>
+            <div class="quick-date-pills" id="quickDatePills">
+              <button type="button" class="date-pill active" onclick="selectQuickDate(0, this)">Today</button>
+              <button type="button" class="date-pill" onclick="selectQuickDate(1, this)">Tomorrow</button>
+              <button type="button" class="date-pill" onclick="selectQuickDate('sat', this)">This Saturday</button>
+              <button type="button" class="date-pill" onclick="selectQuickDate('sun', this)">This Sunday</button>
+            </div>
+
+            <!-- Date Input -->
+            <div class="form-group" style="margin-bottom:1.5rem;">
+              <input type="date" id="bookingDate" class="form-input" required onchange="handleManualDateChange(this.value)">
+              <span class="form-hint">Operating hours: 10:00 AM – 6:00 PM daily. Covered coaches operate rain or shine.</span>
+            </div>
+
+            <!-- Arrival Window -->
+            <label class="form-label" style="margin-bottom:0.6rem;">Arrival Window</label>
+            <div class="timeslot-grid" role="radiogroup" aria-label="Arrival window">
+              <label class="timeslot-card active" id="slotMorning">
+                <input type="radio" name="arrivalSlot" value="Morning (10:00 AM – 1:00 PM)" checked onchange="updateSlot(this.value)">
+                <div class="slot-head">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                  <span class="slot-time">Morning</span>
+                </div>
+                <span class="slot-hours">10:00 AM – 1:00 PM</span>
+                <span class="slot-badge">Fresh Steam Runs</span>
+              </label>
+
+              <label class="timeslot-card" id="slotAfternoon">
+                <input type="radio" name="arrivalSlot" value="Afternoon (1:00 PM – 4:00 PM)" onchange="updateSlot(this.value)">
+                <div class="slot-head">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span class="slot-time">Afternoon</span>
+                </div>
+                <span class="slot-hours">1:00 PM – 4:00 PM</span>
+                <span class="slot-badge">Peak Excursions</span>
+              </label>
+
+              <label class="timeslot-card" id="slotTwilight">
+                <input type="radio" name="arrivalSlot" value="Twilight (4:00 PM – 6:30 PM)" onchange="updateSlot(this.value)">
+                <div class="slot-head">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                  <span class="slot-time">Twilight</span>
+                </div>
+                <span class="slot-hours">4:00 PM – 6:30 PM</span>
+                <span class="slot-badge">Sunset Runs</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- STEP 2: Choose Tickets -->
+          <div class="booking-card anim-fade-up">
+            <div class="booking-step-head">
+              <span class="step-num">2</span>
+              <div>
+                <h2 class="step-title">Select Your Tickets</h2>
+                <p class="step-sub">Every pass grants unlimited hops on &amp; off all steam and diesel trains all day.</p>
+              </div>
+            </div>
+
+            <div class="ticket-tiers-list">
+              
+              <!-- Adult Tier -->
+              <div class="ticket-tier-row">
+                <div class="tier-info">
+                  <div class="tier-title-row">
+                    <span class="tier-name">Adult Day Pass</span>
+                  </div>
+                  <p class="tier-desc">Ages 16 – 64 • Unlimited rides on all circuits, museum entry &amp; free parking</p>
+                </div>
+                <div class="tier-action">
+                  <span class="tier-price">£8.50</span>
+                  <div class="stepper" aria-label="Adult ticket quantity">
+                    <button type="button" class="stepper-btn" onclick="changeQty('adult', -1)" aria-label="Decrease Adult tickets">−</button>
+                    <span class="stepper-val" id="qty-adult">2</span>
+                    <button type="button" class="stepper-btn" onclick="changeQty('adult', 1)" aria-label="Increase Adult tickets">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Child Tier -->
+              <div class="ticket-tier-row">
+                <div class="tier-info">
+                  <div class="tier-title-row">
+                    <span class="tier-name">Child Day Pass</span>
+                  </div>
+                  <p class="tier-desc">Ages 3 – 15 • Includes Jr. Conductor activity trail &amp; unlimited rides</p>
+                </div>
+                <div class="tier-action">
+                  <span class="tier-price">£5.00</span>
+                  <div class="stepper" aria-label="Child ticket quantity">
+                    <button type="button" class="stepper-btn" onclick="changeQty('child', -1)" aria-label="Decrease Child tickets">−</button>
+                    <span class="stepper-val" id="qty-child">1</span>
+                    <button type="button" class="stepper-btn" onclick="changeQty('child', 1)" aria-label="Increase Child tickets">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Family Pass (Featured) -->
+              <div class="ticket-tier-row featured-tier">
+                <div class="tier-info">
+                  <div class="tier-title-row">
+                    <span class="tier-name">Family Day Pass</span>
+                    <span class="tier-tag">Best Value • Save £5</span>
+                  </div>
+                  <p class="tier-desc">2 Adults + 2 Children • Full group admission for all day excursions</p>
+                </div>
+                <div class="tier-action">
+                  <span class="tier-price">£22.00</span>
+                  <div class="stepper" aria-label="Family pass quantity">
+                    <button type="button" class="stepper-btn" onclick="changeQty('family', -1)" aria-label="Decrease Family pass">−</button>
+                    <span class="stepper-val" id="qty-family">0</span>
+                    <button type="button" class="stepper-btn" onclick="changeQty('family', 1)" aria-label="Increase Family pass">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Senior Tier -->
+              <div class="ticket-tier-row">
+                <div class="tier-info">
+                  <div class="tier-title-row">
+                    <span class="tier-name">Senior Day Pass</span>
+                  </div>
+                  <p class="tier-desc">Ages 65+ • All-day pass with priority level boarding</p>
+                </div>
+                <div class="tier-action">
+                  <span class="tier-price">£6.00</span>
+                  <div class="stepper" aria-label="Senior ticket quantity">
+                    <button type="button" class="stepper-btn" onclick="changeQty('senior', -1)" aria-label="Decrease Senior tickets">−</button>
+                    <span class="stepper-val" id="qty-senior">0</span>
+                    <button type="button" class="stepper-btn" onclick="changeQty('senior', 1)" aria-label="Increase Senior tickets">+</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Toddler / Infant Free Tier -->
+              <div class="ticket-tier-row">
+                <div class="tier-info">
+                  <div class="tier-title-row">
+                    <span class="tier-name">Infant / Toddler Pass</span>
+                    <span class="tier-free-pill">FREE</span>
+                  </div>
+                  <p class="tier-desc">Ages 0 – 2 • Travel free with an accompanying adult (lap or carriage space)</p>
+                </div>
+                <div class="tier-action">
+                  <span class="tier-price">£0.00</span>
+                  <div class="stepper" aria-label="Infant ticket quantity">
+                    <button type="button" class="stepper-btn" onclick="changeQty('infant', -1)" aria-label="Decrease Infant tickets">−</button>
+                    <span class="stepper-val" id="qty-infant">0</span>
+                    <button type="button" class="stepper-btn" onclick="changeQty('infant', 1)" aria-label="Increase Infant tickets">+</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- STEP 3: Passenger Details (No Account Required) -->
+          <div class="booking-card anim-fade-up">
+            <div class="booking-step-head">
+              <span class="step-num">3</span>
+              <div>
+                <h2 class="step-title">Lead Passenger &amp; Delivery</h2>
+                <p class="step-sub">No sign-up or login required. Your digital tickets will be sent instantly to this email.</p>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="passengerName">Full Name <span style="color:#ef4444;">*</span></label>
+                <input type="text" id="passengerName" class="form-input" placeholder="e.g. Eleanor Vance" required autocomplete="name">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="passengerEmail">Email Address <span style="color:#ef4444;">*</span></label>
+                <input type="email" id="passengerEmail" class="form-input" placeholder="eleanor@example.com" required autocomplete="email">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="passengerPhone">Mobile Phone (Optional)</label>
+                <input type="tel" id="passengerPhone" class="form-input" placeholder="+44 7123 456789" autocomplete="tel">
+                <span class="form-hint">Used only for platform dispatch SMS notifications</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="accessibilitySelect">Special Assistance / Carriage Needs</label>
+                <select id="accessibilitySelect" class="form-select">
+                  <option value="Standard Seating">Standard Covered Carriage</option>
+                  <option value="Wheelchair Accessible Space">Wheelchair Accessible Space</option>
+                  <option value="Stroller / Pram Friendly">Stroller / Pram Storage</option>
+                  <option value="Assistance Dog">Guide / Assistance Dog Space</option>
+                </select>
+                <span class="form-hint">Selected carriage reserved at boarding platform</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4: Simple Checkout & Confirm -->
+          <div class="booking-card anim-fade-up">
+            <div class="booking-step-head">
+              <span class="step-num">4</span>
+              <div>
+                <h2 class="step-title">Payment &amp; Instant Issuance</h2>
+                <p class="step-sub">Select your preferred payment method. 256-bit encrypted checkout.</p>
+              </div>
+            </div>
+
+            <!-- Payment Methods -->
+            <div class="payment-methods-grid" role="radiogroup" aria-label="Payment method">
+              <label class="payment-method-card active" id="payCardLabel">
+                <input type="radio" name="paymentMethod" value="Card" checked onchange="togglePayment(this.value)">
+                <span class="pay-icon"><i class="fa-solid fa-credit-card"></i></span>
+                <span class="pay-name">Credit / Debit Card</span>
+              </label>
+
+              <label class="payment-method-card" id="payDigitalLabel">
+                <input type="radio" name="paymentMethod" value="Digital" onchange="togglePayment(this.value)">
+                <span class="pay-icon"><i class="fa-solid fa-mobile-screen-button"></i></span>
+                <span class="pay-name">Apple Pay / Google Pay</span>
+              </label>
+
+              <label class="payment-method-card" id="payStationLabel">
+                <input type="radio" name="paymentMethod" value="Station" onchange="togglePayment(this.value)">
+                <span class="pay-icon"><i class="fa-solid fa-ticket"></i></span>
+                <span class="pay-name">Pay on Arrival at Station</span>
+              </label>
+            </div>
+
+            <!-- Card simulation input box -->
+            <div id="cardFields" class="card-input-box" style="margin-top:1.25rem;">
+              <div class="form-group" style="margin-bottom:0.85rem;">
+                <label class="form-label" for="fakeCardNum">Card Number</label>
+                <input type="text" id="fakeCardNum" class="form-input" placeholder="•••• •••• •••• 4242" value="4532 •••• •••• 8821" maxlength="19">
+              </div>
+              <div class="form-row" style="margin-bottom:0;">
+                <div class="form-group" style="margin-bottom:0;">
+                  <label class="form-label" for="fakeExpiry">Expiry</label>
+                  <input type="text" id="fakeExpiry" class="form-input" placeholder="MM/YY" value="08/28" maxlength="5">
+                </div>
+                <div class="form-group" style="margin-bottom:0;">
+                  <label class="form-label" for="fakeCvc">Security Code (CVC)</label>
+                  <input type="text" id="fakeCvc" class="form-input" placeholder="CVC" value="382" maxlength="4">
+                </div>
+              </div>
+            </div>
+
+            <!-- Promo Code Accordion -->
+            <div class="promo-box" style="margin-top:1.25rem;">
+              <div class="promo-input-row">
+                <input type="text" id="promoCodeInput" class="form-input" placeholder="Promo code (Try TRAIN10)" style="text-transform:uppercase;">
+                <button type="button" class="btn btn-outline-primary" onclick="applyPromoCode()">Apply</button>
+              </div>
+              <div id="promoFeedback" class="promo-feedback" style="display:none;"></div>
+            </div>
+
+            <!-- Terms -->
+            <div style="margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--border-light);">
+              <label class="form-check">
+                <input type="checkbox" id="termsCheck" checked required>
+                <span style="font-size:0.8125rem;color:var(--text-muted);">I agree to the <a href="visit.html#faq" class="link-primary" target="_blank">Passenger Rules &amp; Ticket Terms</a>. Rescheduling is 100% free up to 24h prior.</span>
+              </label>
+            </div>
+
+            <!-- Big Submit CTA -->
+            <div style="margin-top:1.5rem;">
+              <button type="submit" class="btn btn-secondary btn-lg w-full book-submit-btn" id="submitBtn">
+                <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                <span>Confirm &amp; Issue Tickets</span>
+                <span class="btn-divider">•</span>
+                <span id="btnTotalText">£22.00</span>
+              </button>
+            </div>
+
+            <p style="text-align:center;font-size:0.75rem;color:var(--text-muted);margin-top:0.85rem;display:flex;align-items:center;justify-content:center;gap:0.4rem;">
+              <i class="fa-solid fa-shield-halved" style="font-size:0.75rem;"></i>
+              Secure 256-bit SSL encryption. Digital pass generated instantly.
+            </p>
+
+          </div>
+
+        </form>
+      </div>
+
+      <!-- RIGHT: Sticky Order Summary & Boarding Pass Preview -->
+      <div class="booking-summary-col">
+        <aside class="booking-summary-card" aria-label="Order Summary">
+          
+          <div class="summary-head">
+            <div class="summary-brand">
+              <i class="fa-solid fa-ticket-simple" style="font-size:1.05rem;color:#F5D478;"></i>
+              <span>BOARDING PASS SUMMARY</span>
+            </div>
+            <span class="summary-serial" id="liveSerial">TP-2026</span>
+          </div>
+
+          <div class="summary-body">
+            
+            <!-- Date & Slot Strip -->
+            <div class="summary-dispatch-box">
+              <div class="dispatch-row-item">
+                <span class="d-label">VISIT DATE</span>
+                <strong class="d-val" id="summaryDateDisplay">Today</strong>
+              </div>
+              <div class="dispatch-row-item">
+                <span class="d-label">ARRIVAL WINDOW</span>
+                <strong class="d-val" id="summarySlotDisplay">Morning (10am–1pm)</strong>
+              </div>
+            </div>
+
+            <!-- Itemized Line Items -->
+            <div class="summary-items-list" id="summaryItemsList">
+              <!-- Rendered via JS -->
+            </div>
+
+            <!-- Discount Notice (if active) -->
+            <div id="summaryDiscountRow" class="summary-row discount-row" style="display:none;">
+              <span>Promo Code (10% Off)</span>
+              <strong id="summaryDiscountVal">-£0.00</strong>
+            </div>
+
+            <!-- Total -->
+            <div class="summary-total-block">
+              <div class="total-label-wrap">
+                <span class="total-main-label">TOTAL AMOUNT</span>
+                <span class="total-tax-note">All taxes &amp; fees included</span>
+              </div>
+              <div class="total-price" id="summaryTotalPrice">£22.00</div>
+            </div>
+
+            <!-- Instant Booking Button in Summary Card -->
+            <button type="button" class="btn btn-secondary w-full summary-book-btn" id="summarySubmitBtn" onclick="document.getElementById('trainBookingForm').requestSubmit()">
+              <i class="fa-solid fa-lock" aria-hidden="true"></i>
+              <span>Confirm &amp; Get Tickets</span>
+              <span class="btn-divider">•</span>
+              <span id="summaryBtnTotal">£22.00</span>
+            </button>
+
+
+
+          </div>
+        </aside>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FREQUENTLY ASKED QUESTIONS ABOUT TICKETS -->
+<section class="section" style="padding-top:3.5rem;">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Ticket FAQs</div>
+      <div class="track-divider"><div class="track-dot"></div></div>
+      <h2 class="section-title">Common <span>Questions</span></h2>
+      <p class="section-desc">Quick answers about ticket collection, weather policies, and boarding procedures.</p>
+    </div>
+
+    <div class="grid-2" style="max-width:960px;margin:0 auto;gap:1.5rem;">
+      <div class="booking-faq-card">
+        <h4>Do I need to print my tickets?</h4>
+        <p>No! Digital mobile tickets on your smartphone are fully accepted at turnstiles. Just open the confirmation QR pass on your phone upon arrival.</p>
+      </div>
+      <div class="booking-faq-card">
+        <h4>What if it rains on the day of my visit?</h4>
+        <p>Our passenger coaches feature covered roofs and clear rain guards. If severe gales halt service, we will happily reschedule your tickets free of charge.</p>
+      </div>
+      <div class="booking-faq-card">
+        <h4>Can I change my ticket date after booking?</h4>
+        <p>Yes! Date changes are 100% free up to 24 hours prior to your scheduled arrival. Simply call our visitor desk or reply to your confirmation email.</p>
+      </div>
+      <div class="booking-faq-card">
+        <h4>Can I buy tickets on the day at the station?</h4>
+        <p>Yes, tickets can be purchased at the Central Station Ticket Kiosk on the day. However, booking online guarantees priority carriage boarding during peak periods.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONFIRMATION MODAL -->
+<div class="modal-backdrop" id="bookingSuccessModal" role="dialog" aria-modal="true" aria-labelledby="modalSuccessHeading">
+  <div class="modal-box anim-fade-up">
+    <div class="modal-confetti-strip"></div>
+    
+    <div class="modal-content-inner">
+      <div class="modal-icon-success">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+
+      <h3 class="modal-title" id="modalSuccessHeading">Booking Confirmed! All Aboard!</h3>
+      <p class="modal-subtitle">Your digital boarding pass has been issued and sent to <strong id="modalEmailDisplay">your email</strong>.</p>
+
+      <!-- Digital Boarding Pass Ticket -->
+      <div class="digital-pass-card">
+        <div class="d-pass-head">
+          <div class="d-pass-brand">
+            <img src="logo.svg" alt="TrainPark" width="28" height="28">
+            <span>TRAINPARK ALL-DAY PASS</span>
+          </div>
+          <span class="d-pass-ref" id="modalRefDisplay">TP-89214</span>
+        </div>
+
+        <div class="d-pass-body">
+          <div class="d-pass-grid">
+            <div>
+              <span class="pass-lbl">LEAD PASSENGER</span>
+              <strong class="pass-val" id="modalNameDisplay">Eleanor Vance</strong>
+            </div>
+            <div>
+              <span class="pass-lbl">DATE OF VISIT</span>
+              <strong class="pass-val" id="modalDateVal">Today</strong>
+            </div>
+            <div>
+              <span class="pass-lbl">ARRIVAL WINDOW</span>
+              <strong class="pass-val" id="modalSlotVal">Morning (10am–1pm)</strong>
+            </div>
+            <div>
+              <span class="pass-lbl">TOTAL PASSENGERS</span>
+              <strong class="pass-val" id="modalPaxVal">3 Riders</strong>
+            </div>
+          </div>
+
+          <div class="d-pass-barcode-row">
+            <!-- Simulated QR & Barcode -->
+            <div class="barcode-graphic">
+              <span>||| | ||||| || |||| ||| ||||| | || |||||| | |||</span>
+            </div>
+            <div class="qr-box">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M2 2h8v8H2zM4 4v4h4V4zM14 2h8v8h-8zM16 4v4h4V4zM2 14h8v8H2zM4 16v4h4v-4zM14 14h2v2h-2zM18 14h4v2h-4zM14 18h4v4h-4zM20 18h2v4h-2zM16 16h2v2h-2z"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="d-pass-foot">
+          <span>Show this QR code at any park turnstile for instant gate entry.</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="modal-actions-row">
+        <button type="button" class="btn btn-secondary btn-md" onclick="window.print()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print / Save Pass
+        </button>
+        <button type="button" class="btn btn-outline-primary btn-md" onclick="closeModal()">
+          Book More Tickets
+        </button>
+        <a href="index.html" class="btn btn-outline-light btn-md" style="color:var(--text-body);border-color:var(--border-default);">
+          Return to Home
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Footer (Injected by components.js) -->
+<div id="footer-container"></div>
+
+<script src="components.js"></script>
+<script>
+// Ticket Prices Configuration
+const TICKET_PRICES = {
+  adult: 8.50,
+  child: 5.00,
+  family: 22.00,
+  senior: 6.00,
+  infant: 0.00
+};
+
+const TICKET_NAMES = {
+  adult: 'Adult Day Pass',
+  child: 'Child Day Pass',
+  family: 'Family Pass (2A+2C)',
+  senior: 'Senior Day Pass',
+  infant: 'Infant Pass (Under 3)'
+};
+
+// Current quantities
+let ticketQuantities = {
+  adult: 2,
+  child: 1,
+  family: 0,
+  senior: 0,
+  infant: 0
+};
+
+let currentSlot = 'Morning (10:00 AM – 1:00 PM)';
+let discountPercent = 0;
+let appliedPromoCode = '';
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize shared header, footer, toggles
+  initComponents('tickets.html');
+  initScrollAnimations();
+
+  // Set default date to today
+  initDefaultDate();
+
+  // Initial calculation
+  renderSummary();
+});
+
+// Setup Date Picker Defaults
+function initDefaultDate() {
+  const dateInput = document.getElementById('bookingDate');
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const dd = String(today.getDate()).padStart(2, '0');
+  
+  const todayStr = `${yyyy}-${mm}-${dd}`;
+  dateInput.min = todayStr;
+  dateInput.value = todayStr;
+}
+
+// Quick Date Pill Selector
+function selectQuickDate(type, pillEl) {
+  document.querySelectorAll('.date-pill').forEach(p => p.classList.remove('active'));
+  if (pillEl) pillEl.classList.add('active');
+
+  const today = new Date();
+  let target = new Date();
+
+  if (type === 0) {
+    target = today;
+  } else if (type === 1) {
+    target.setDate(today.getDate() + 1);
+  } else if (type === 'sat') {
+    const day = today.getDay();
+    const diff = (6 - day + 7) % 7 || 7;
+    target.setDate(today.getDate() + diff);
+  } else if (type === 'sun') {
+    const day = today.getDay();
+    const diff = (7 - day + 7) % 7 || 7;
+    target.setDate(today.getDate() + diff);
+  }
+
+  const yyyy = target.getFullYear();
+  const mm = String(target.getMonth() + 1).padStart(2, '0');
+  const dd = String(target.getDate()).padStart(2, '0');
+  const formattedStr = `${yyyy}-${mm}-${dd}`;
+
+  document.getElementById('bookingDate').value = formattedStr;
+  
+  // Format readable label
+  const options = { weekday: 'short', month: 'short', day: 'numeric' };
+  const readable = target.toLocaleDateString('en-GB', options);
+  document.getElementById('summaryDateDisplay').textContent = type === 0 ? `Today (${readable})` : readable;
+}
+
+function handleManualDateChange(val) {
+  document.querySelectorAll('.date-pill').forEach(p => p.classList.remove('active'));
+  if (!val) return;
+  const parts = val.split('-');
+  const d = new Date(parts[0], parts[1] - 1, parts[2]);
+  const readable = d.toLocaleDateString('en-GB', { weekday: 'short', month: 'short', day: 'numeric' });
+  document.getElementById('summaryDateDisplay').textContent = readable;
+}
+
+// Change Quantity
+function changeQty(tier, delta) {
+  const current = ticketQuantities[tier] || 0;
+  const next = Math.max(0, Math.min(20, current + delta));
+  ticketQuantities[tier] = next;
+  
+  const countEl = document.getElementById(`qty-${tier}`);
+  if (countEl) countEl.textContent = next;
+
+  renderSummary();
+}
+
+// Update Arrival Slot
+function updateSlot(slotName) {
+  currentSlot = slotName;
+  document.querySelectorAll('.timeslot-card').forEach(c => c.classList.remove('active'));
+  if (slotName.includes('Morning')) document.getElementById('slotMorning').classList.add('active');
+  if (slotName.includes('Afternoon')) document.getElementById('slotAfternoon').classList.add('active');
+  if (slotName.includes('Twilight')) document.getElementById('slotTwilight').classList.add('active');
+
+  const shortSlot = slotName.split('(')[0].trim();
+  document.getElementById('summarySlotDisplay').textContent = slotName;
+}
+
+// Toggle Payment Mode
+function togglePayment(mode) {
+  document.querySelectorAll('.payment-method-card').forEach(c => c.classList.remove('active'));
+  if (mode === 'Card') {
+    document.getElementById('payCardLabel').classList.add('active');
+    document.getElementById('cardFields').style.display = 'block';
+  } else if (mode === 'Digital') {
+    document.getElementById('payDigitalLabel').classList.add('active');
+    document.getElementById('cardFields').style.display = 'none';
+  } else {
+    document.getElementById('payStationLabel').classList.add('active');
+    document.getElementById('cardFields').style.display = 'none';
+  }
+}
+
+// Apply Promo Code
+function applyPromoCode() {
+  const input = document.getElementById('promoCodeInput');
+  const code = (input.value || '').trim().toUpperCase();
+  const feedback = document.getElementById('promoFeedback');
+
+  if (code === 'TRAIN10') {
+    discountPercent = 10;
+    appliedPromoCode = 'TRAIN10';
+    feedback.innerHTML = '<i class="fa-solid fa-tag"></i> Coupon applied! 10% discount on all tickets.';
+    feedback.style.color = '#15803d';
+    feedback.style.display = 'block';
+  } else if (code === '') {
+    discountPercent = 0;
+    appliedPromoCode = '';
+    feedback.style.display = 'none';
+  } else {
+    discountPercent = 0;
+    appliedPromoCode = '';
+    feedback.textContent = 'Invalid promo code. Try TRAIN10.';
+    feedback.style.color = '#b91c1c';
+    feedback.style.display = 'block';
+  }
+  renderSummary();
+}
+
+// Render Order Summary
+function renderSummary() {
+  const container = document.getElementById('summaryItemsList');
+  let subtotal = 0;
+  let totalPax = 0;
+  let html = '';
+
+  for (const [tier, qty] of Object.entries(ticketQuantities)) {
+    if (qty > 0) {
+      const lineCost = qty * TICKET_PRICES[tier];
+      subtotal += lineCost;
+      totalPax += (tier === 'family' ? qty * 4 : qty);
+
+      html += `
+        <div class="summary-line-item">
+          <div>
+            <strong>${qty}× ${TICKET_NAMES[tier]}</strong>
+            <span class="unit-price">@ £${TICKET_PRICES[tier].toFixed(2)} each</span>
+          </div>
+          <span class="line-cost">£${lineCost.toFixed(2)}</span>
+        </div>
+      `;
+    }
+  }
+
+  if (html === '') {
+    html = `<div style="text-align:center;padding:1.5rem 0;color:var(--text-muted);font-size:0.875rem;">No tickets selected yet. Add tickets above.</div>`;
+  }
+  container.innerHTML = html;
+
+  // Calculate discount
+  const discountAmount = (subtotal * discountPercent) / 100;
+  const grandTotal = Math.max(0, subtotal - discountAmount);
+
+  // Discount row
+  const discRow = document.getElementById('summaryDiscountRow');
+  if (discountPercent > 0 && subtotal > 0) {
+    discRow.style.display = 'flex';
+    document.getElementById('summaryDiscountVal').textContent = `-£${discountAmount.toFixed(2)}`;
+  } else {
+    discRow.style.display = 'none';
+  }
+
+  // Grand total
+  const formattedTotal = `£${grandTotal.toFixed(2)}`;
+  document.getElementById('summaryTotalPrice').textContent = formattedTotal;
+  document.getElementById('btnTotalText').textContent = formattedTotal;
+  const sBtnTotal = document.getElementById('summaryBtnTotal');
+  if (sBtnTotal) sBtnTotal.textContent = formattedTotal;
+
+  // Disable buttons if 0 tickets
+  const btn = document.getElementById('submitBtn');
+  const sBtn = document.getElementById('summarySubmitBtn');
+  if (subtotal === 0) {
+    if (btn) { btn.disabled = true; btn.style.opacity = '0.6'; btn.style.cursor = 'not-allowed'; }
+    if (sBtn) { sBtn.disabled = true; sBtn.style.opacity = '0.6'; sBtn.style.cursor = 'not-allowed'; }
+  } else {
+    if (btn) { btn.disabled = false; btn.style.opacity = '1'; btn.style.cursor = 'pointer'; }
+    if (sBtn) { sBtn.disabled = false; sBtn.style.opacity = '1'; sBtn.style.cursor = 'pointer'; }
+  }
+}
+
+// Handle Form Submission
+function handleBookingSubmit(e) {
+  e.preventDefault();
+  
+  // Validate at least one ticket
+  let totalTickets = 0;
+  for (const q of Object.values(ticketQuantities)) totalTickets += q;
+  if (totalTickets === 0) {
+    alert('Please select at least 1 ticket before confirming your booking.');
+    return;
+  }
+
+  const name = document.getElementById('passengerName').value.trim();
+  const email = document.getElementById('passengerEmail').value.trim();
+
+  if (!name || !email) {
+    alert('Please provide your name and email address to receive your e-tickets.');
+    return;
+  }
+
+  // Generate Reference
+  const refCode = 'TP-' + Math.floor(100000 + Math.random() * 900000);
+  const dateVal = document.getElementById('summaryDateDisplay').textContent;
+  
+  let paxCount = 0;
+  for (const [k, v] of Object.entries(ticketQuantities)) {
+    paxCount += (k === 'family' ? v * 4 : v);
+  }
+
+  // Populate Modal
+  document.getElementById('modalRefDisplay').textContent = refCode;
+  document.getElementById('modalNameDisplay').textContent = name;
+  document.getElementById('modalEmailDisplay').textContent = email;
+  document.getElementById('modalDateVal').textContent = dateVal;
+  document.getElementById('modalSlotVal').textContent = currentSlot;
+  document.getElementById('modalPaxVal').textContent = `${paxCount} Passenger${paxCount > 1 ? 's' : ''}`;
+
+  // Open modal
+  const modal = document.getElementById('bookingSuccessModal');
+  modal.classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('bookingSuccessModal').classList.remove('open');
+}
+</script>
+</body>
+</html>

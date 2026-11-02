@@ -57,7 +57,7 @@ function getNavbarHTML(activePage = '') {
         <svg id="iconSun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
         <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a href="login.html" class="btn btn-secondary btn-sm" id="navLoginBtn">Login</a>
+      <a href="tickets.html" class="btn btn-secondary btn-sm nav-cta-btn" id="navBookBtn"><i class="fa-solid fa-ticket"></i><span>Book Tickets</span></a>
       <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu(event)" aria-label="Open menu" aria-expanded="false">
         <span class="mobile-menu-icon">
           <svg id="menuIconOpen" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -74,7 +74,7 @@ function getNavbarHTML(activePage = '') {
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     ${mobLinks}
     <div class="mob-actions">
-      <a href="login.html" class="btn btn-secondary w-full">Login</a>
+      <a href="tickets.html" class="btn btn-secondary w-full" id="mobBookBtn"><i class="fa-solid fa-ticket"></i><span>Book Tickets</span></a>
     </div>
     <div class="mob-toggles">
       <button onclick="toggleDir()" class="nav-icon-btn" title="Toggle Direction" aria-label="Toggle text direction">
@@ -131,7 +131,7 @@ function getFooterHTML() {
           <li><a href="visit.html">Visit Us</a></li>
           <li><a href="birthday.html">Birthday Parties</a></li>
           <li><a href="school.html">School Groups</a></li>
-          <li><a href="visit.html#tickets">Pricing &amp; Tickets</a></li>
+          <li><a href="tickets.html">Book Tickets &amp; Passes</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -142,8 +142,8 @@ function getFooterHTML() {
         <ul class="footer-links">
           <li><a href="coming-soon.html">Blog &amp; Tips</a></li>
           <li><a href="coming-soon.html">Careers</a></li>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="signup.html">Sign Up</a></li>
+          <li><a href="visit.html#hours">Park Hours &amp; Schedule</a></li>
+          <li><a href="visit.html#faq">Visitor FAQ</a></li>
           <li><a href="404.html">404 Page</a></li>
           <li><a href="coming-soon.html">Coming Soon</a></li>
         </ul>
