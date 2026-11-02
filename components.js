@@ -25,6 +25,7 @@ function getNavbarHTML(activePage = '') {
   const links = [
     { href: 'index.html', label: 'Home' },
     { href: 'home2.html', label: 'Home 2' },
+    { href: 'about.html', label: 'About Us' },
     { href: 'visit.html', label: 'Visit Us' },
     { href: 'birthday.html', label: 'Birthday Parties' },
     { href: 'school.html', label: 'School Groups' },
@@ -128,6 +129,7 @@ function getFooterHTML() {
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="home2.html">Home 2 — Premium</a></li>
+          <li><a href="about.html">About Us</a></li>
           <li><a href="visit.html">Visit Us</a></li>
           <li><a href="birthday.html">Birthday Parties</a></li>
           <li><a href="school.html">School Groups</a></li>
@@ -140,6 +142,9 @@ function getFooterHTML() {
       <div class="footer-col">
         <h4 class="footer-col-title">RESOURCES</h4>
         <ul class="footer-links">
+          <li><a href="about.html#railway-history">Railway Heritage</a></li>
+          <li><a href="about.html#safety-commitment">Safety Standards</a></li>
+          <li><a href="about.html#community-education">Community &amp; STEM</a></li>
           <li><a href="coming-soon.html">Blog &amp; Tips</a></li>
           <li><a href="coming-soon.html">Careers</a></li>
           <li><a href="visit.html#hours">Park Hours &amp; Schedule</a></li>
